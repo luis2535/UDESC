@@ -1,0 +1,1238 @@
+Estado 98 conflitos: 1 de deslocamento/redução
+
+
+Gramática
+
+    0 $accept: programa $end
+
+    1 programa: declaracao-lista
+
+    2 declaracao-lista: declaracao-lista declaracao
+    3                 | declaracao
+
+    4 declaracao: var-declaracao
+    5           | fun-declaracao
+
+    6 var-declaracao: tipo-especificador ID ";"
+    7               | tipo-especificador ID "[" NUM "]" ";"
+
+    8 tipo-especificador: "int"
+    9                   | "void"
+
+   10 fun-declaracao: tipo-especificador ID "(" params ")" composto-decl
+
+   11 params: param-lista
+   12       | "void"
+
+   13 param-lista: param-lista "," param
+   14            | param
+
+   15 param: tipo-especificador ID
+   16      | tipo-especificador ID "[" "]"
+
+   17 composto-decl: "{" local-declaracoes statement-lista "}"
+
+   18 local-declaracoes: local-declaracoes var-declaracao
+   19                  | ε
+
+   20 statement-lista: statement-lista statement
+   21                | ε
+
+   22 statement: expressao-decl
+   23          | composto-decl
+   24          | selecao-decl
+   25          | iteracao-decl
+   26          | retorno-decl
+
+   27 expressao-decl: expressao ";"
+   28               | ";"
+
+   29 selecao-decl: "if" "(" expressao ")" statement
+   30             | "if" "(" expressao ")" statement "else" statement
+
+   31 iteracao-decl: "while" "(" expressao ")" statement
+
+   32 retorno-decl: "return" ";"
+   33             | "return" expressao ";"
+
+   34 expressao: var "=" expressao
+   35          | simples-expressao
+
+   36 var: ID
+   37    | ID "[" expressao "]"
+
+   38 simples-expressao: soma-expressao relacional soma-expressao
+   39                  | soma-expressao
+
+   40 relacional: "<="
+   41           | "<"
+   42           | ">"
+   43           | ">="
+   44           | "=="
+   45           | "!="
+
+   46 soma-expressao: soma-expressao soma termo
+   47               | termo
+
+   48 soma: "+"
+   49     | "-"
+
+   50 termo: termo mult fator
+   51      | fator
+
+   52 mult: "*"
+   53     | "/"
+
+   54 fator: "(" expressao ")"
+   55      | var
+   56      | ativacao
+   57      | NUM
+
+   58 ativacao: ID "(" args ")"
+
+   59 args: arg-lista
+   60     | ε
+
+   61 arg-lista: arg-lista "," expressao
+   62          | expressao
+
+
+Terminais, com as regras onde eles aparecem
+
+    $end (0) 0
+    error (256)
+    ID (258) 6 7 10 15 16 36 37 58
+    NUM (259) 7 57
+    ";" (260) 6 7 27 28 32 33
+    "[" (261) 7 16 37
+    "]" (262) 7 16 37
+    "int" (263) 8
+    "void" (264) 9 12
+    "(" (265) 10 29 30 31 54 58
+    ")" (266) 10 29 30 31 54 58
+    "," (267) 13 61
+    "{" (268) 17
+    "}" (269) 17
+    "if" (270) 29 30
+    "else" (271) 30
+    "while" (272) 31
+    "return" (273) 32 33
+    "=" (274) 34
+    "<=" (275) 40
+    "<" (276) 41
+    ">" (277) 42
+    ">=" (278) 43
+    "==" (279) 44
+    "!=" (280) 45
+    "+" (281) 48
+    "-" (282) 49
+    "*" (283) 52
+    "/" (284) 53
+
+
+Não terminais com as regras onde eles aparecem
+
+    $accept (30)
+        à esquerda: 0
+    programa (31)
+        à esquerda: 1
+        à direita: 0
+    declaracao-lista (32)
+        à esquerda: 2 3
+        à direita: 1 2
+    declaracao (33)
+        à esquerda: 4 5
+        à direita: 2 3
+    var-declaracao (34)
+        à esquerda: 6 7
+        à direita: 4 18
+    tipo-especificador (35)
+        à esquerda: 8 9
+        à direita: 6 7 10 15 16
+    fun-declaracao (36)
+        à esquerda: 10
+        à direita: 5
+    params (37)
+        à esquerda: 11 12
+        à direita: 10
+    param-lista (38)
+        à esquerda: 13 14
+        à direita: 11 13
+    param (39)
+        à esquerda: 15 16
+        à direita: 13 14
+    composto-decl (40)
+        à esquerda: 17
+        à direita: 10 23
+    local-declaracoes (41)
+        à esquerda: 18 19
+        à direita: 17 18
+    statement-lista (42)
+        à esquerda: 20 21
+        à direita: 17 20
+    statement (43)
+        à esquerda: 22 23 24 25 26
+        à direita: 20 29 30 31
+    expressao-decl (44)
+        à esquerda: 27 28
+        à direita: 22
+    selecao-decl (45)
+        à esquerda: 29 30
+        à direita: 24
+    iteracao-decl (46)
+        à esquerda: 31
+        à direita: 25
+    retorno-decl (47)
+        à esquerda: 32 33
+        à direita: 26
+    expressao (48)
+        à esquerda: 34 35
+        à direita: 27 29 30 31 33 34 37 54 61 62
+    var (49)
+        à esquerda: 36 37
+        à direita: 34 55
+    simples-expressao (50)
+        à esquerda: 38 39
+        à direita: 35
+    relacional (51)
+        à esquerda: 40 41 42 43 44 45
+        à direita: 38
+    soma-expressao (52)
+        à esquerda: 46 47
+        à direita: 38 39 46
+    soma (53)
+        à esquerda: 48 49
+        à direita: 46
+    termo (54)
+        à esquerda: 50 51
+        à direita: 46 47 50
+    mult (55)
+        à esquerda: 52 53
+        à direita: 50
+    fator (56)
+        à esquerda: 54 55 56 57
+        à direita: 50 51
+    ativacao (57)
+        à esquerda: 58
+        à direita: 56
+    args (58)
+        à esquerda: 59 60
+        à direita: 58
+    arg-lista (59)
+        à esquerda: 61 62
+        à direita: 59 61
+
+
+Estado 0
+
+    0 $accept: • programa $end
+
+    "int"   deslocar, e ir ao estado 1
+    "void"  deslocar, e ir ao estado 2
+
+    programa            ir ao estado 3
+    declaracao-lista    ir ao estado 4
+    declaracao          ir ao estado 5
+    var-declaracao      ir ao estado 6
+    tipo-especificador  ir ao estado 7
+    fun-declaracao      ir ao estado 8
+
+
+Estado 1
+
+    8 tipo-especificador: "int" •
+
+    $padrão  reduzir usando a regra 8 (tipo-especificador)
+
+
+Estado 2
+
+    9 tipo-especificador: "void" •
+
+    $padrão  reduzir usando a regra 9 (tipo-especificador)
+
+
+Estado 3
+
+    0 $accept: programa • $end
+
+    $end  deslocar, e ir ao estado 9
+
+
+Estado 4
+
+    1 programa: declaracao-lista •
+    2 declaracao-lista: declaracao-lista • declaracao
+
+    "int"   deslocar, e ir ao estado 1
+    "void"  deslocar, e ir ao estado 2
+
+    $padrão  reduzir usando a regra 1 (programa)
+
+    declaracao          ir ao estado 10
+    var-declaracao      ir ao estado 6
+    tipo-especificador  ir ao estado 7
+    fun-declaracao      ir ao estado 8
+
+
+Estado 5
+
+    3 declaracao-lista: declaracao •
+
+    $padrão  reduzir usando a regra 3 (declaracao-lista)
+
+
+Estado 6
+
+    4 declaracao: var-declaracao •
+
+    $padrão  reduzir usando a regra 4 (declaracao)
+
+
+Estado 7
+
+    6 var-declaracao: tipo-especificador • ID ";"
+    7               | tipo-especificador • ID "[" NUM "]" ";"
+   10 fun-declaracao: tipo-especificador • ID "(" params ")" composto-decl
+
+    ID  deslocar, e ir ao estado 11
+
+
+Estado 8
+
+    5 declaracao: fun-declaracao •
+
+    $padrão  reduzir usando a regra 5 (declaracao)
+
+
+Estado 9
+
+    0 $accept: programa $end •
+
+    $padrão  aceitar
+
+
+Estado 10
+
+    2 declaracao-lista: declaracao-lista declaracao •
+
+    $padrão  reduzir usando a regra 2 (declaracao-lista)
+
+
+Estado 11
+
+    6 var-declaracao: tipo-especificador ID • ";"
+    7               | tipo-especificador ID • "[" NUM "]" ";"
+   10 fun-declaracao: tipo-especificador ID • "(" params ")" composto-decl
+
+    ";"  deslocar, e ir ao estado 12
+    "["  deslocar, e ir ao estado 13
+    "("  deslocar, e ir ao estado 14
+
+
+Estado 12
+
+    6 var-declaracao: tipo-especificador ID ";" •
+
+    $padrão  reduzir usando a regra 6 (var-declaracao)
+
+
+Estado 13
+
+    7 var-declaracao: tipo-especificador ID "[" • NUM "]" ";"
+
+    NUM  deslocar, e ir ao estado 15
+
+
+Estado 14
+
+   10 fun-declaracao: tipo-especificador ID "(" • params ")" composto-decl
+
+    "int"   deslocar, e ir ao estado 1
+    "void"  deslocar, e ir ao estado 16
+
+    tipo-especificador  ir ao estado 17
+    params              ir ao estado 18
+    param-lista         ir ao estado 19
+    param               ir ao estado 20
+
+
+Estado 15
+
+    7 var-declaracao: tipo-especificador ID "[" NUM • "]" ";"
+
+    "]"  deslocar, e ir ao estado 21
+
+
+Estado 16
+
+    9 tipo-especificador: "void" •
+   12 params: "void" •
+
+    ")"      reduzir usando a regra 12 (params)
+    $padrão  reduzir usando a regra 9 (tipo-especificador)
+
+
+Estado 17
+
+   15 param: tipo-especificador • ID
+   16      | tipo-especificador • ID "[" "]"
+
+    ID  deslocar, e ir ao estado 22
+
+
+Estado 18
+
+   10 fun-declaracao: tipo-especificador ID "(" params • ")" composto-decl
+
+    ")"  deslocar, e ir ao estado 23
+
+
+Estado 19
+
+   11 params: param-lista •
+   13 param-lista: param-lista • "," param
+
+    ","  deslocar, e ir ao estado 24
+
+    $padrão  reduzir usando a regra 11 (params)
+
+
+Estado 20
+
+   14 param-lista: param •
+
+    $padrão  reduzir usando a regra 14 (param-lista)
+
+
+Estado 21
+
+    7 var-declaracao: tipo-especificador ID "[" NUM "]" • ";"
+
+    ";"  deslocar, e ir ao estado 25
+
+
+Estado 22
+
+   15 param: tipo-especificador ID •
+   16      | tipo-especificador ID • "[" "]"
+
+    "["  deslocar, e ir ao estado 26
+
+    $padrão  reduzir usando a regra 15 (param)
+
+
+Estado 23
+
+   10 fun-declaracao: tipo-especificador ID "(" params ")" • composto-decl
+
+    "{"  deslocar, e ir ao estado 27
+
+    composto-decl  ir ao estado 28
+
+
+Estado 24
+
+   13 param-lista: param-lista "," • param
+
+    "int"   deslocar, e ir ao estado 1
+    "void"  deslocar, e ir ao estado 2
+
+    tipo-especificador  ir ao estado 17
+    param               ir ao estado 29
+
+
+Estado 25
+
+    7 var-declaracao: tipo-especificador ID "[" NUM "]" ";" •
+
+    $padrão  reduzir usando a regra 7 (var-declaracao)
+
+
+Estado 26
+
+   16 param: tipo-especificador ID "[" • "]"
+
+    "]"  deslocar, e ir ao estado 30
+
+
+Estado 27
+
+   17 composto-decl: "{" • local-declaracoes statement-lista "}"
+
+    $padrão  reduzir usando a regra 19 (local-declaracoes)
+
+    local-declaracoes  ir ao estado 31
+
+
+Estado 28
+
+   10 fun-declaracao: tipo-especificador ID "(" params ")" composto-decl •
+
+    $padrão  reduzir usando a regra 10 (fun-declaracao)
+
+
+Estado 29
+
+   13 param-lista: param-lista "," param •
+
+    $padrão  reduzir usando a regra 13 (param-lista)
+
+
+Estado 30
+
+   16 param: tipo-especificador ID "[" "]" •
+
+    $padrão  reduzir usando a regra 16 (param)
+
+
+Estado 31
+
+   17 composto-decl: "{" local-declaracoes • statement-lista "}"
+   18 local-declaracoes: local-declaracoes • var-declaracao
+
+    "int"   deslocar, e ir ao estado 1
+    "void"  deslocar, e ir ao estado 2
+
+    $padrão  reduzir usando a regra 21 (statement-lista)
+
+    var-declaracao      ir ao estado 32
+    tipo-especificador  ir ao estado 33
+    statement-lista     ir ao estado 34
+
+
+Estado 32
+
+   18 local-declaracoes: local-declaracoes var-declaracao •
+
+    $padrão  reduzir usando a regra 18 (local-declaracoes)
+
+
+Estado 33
+
+    6 var-declaracao: tipo-especificador • ID ";"
+    7               | tipo-especificador • ID "[" NUM "]" ";"
+
+    ID  deslocar, e ir ao estado 35
+
+
+Estado 34
+
+   17 composto-decl: "{" local-declaracoes statement-lista • "}"
+   20 statement-lista: statement-lista • statement
+
+    ID        deslocar, e ir ao estado 36
+    NUM       deslocar, e ir ao estado 37
+    ";"       deslocar, e ir ao estado 38
+    "("       deslocar, e ir ao estado 39
+    "{"       deslocar, e ir ao estado 27
+    "}"       deslocar, e ir ao estado 40
+    "if"      deslocar, e ir ao estado 41
+    "while"   deslocar, e ir ao estado 42
+    "return"  deslocar, e ir ao estado 43
+
+    composto-decl      ir ao estado 44
+    statement          ir ao estado 45
+    expressao-decl     ir ao estado 46
+    selecao-decl       ir ao estado 47
+    iteracao-decl      ir ao estado 48
+    retorno-decl       ir ao estado 49
+    expressao          ir ao estado 50
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 35
+
+    6 var-declaracao: tipo-especificador ID • ";"
+    7               | tipo-especificador ID • "[" NUM "]" ";"
+
+    ";"  deslocar, e ir ao estado 12
+    "["  deslocar, e ir ao estado 13
+
+
+Estado 36
+
+   36 var: ID •
+   37    | ID • "[" expressao "]"
+   58 ativacao: ID • "(" args ")"
+
+    "["  deslocar, e ir ao estado 57
+    "("  deslocar, e ir ao estado 58
+
+    $padrão  reduzir usando a regra 36 (var)
+
+
+Estado 37
+
+   57 fator: NUM •
+
+    $padrão  reduzir usando a regra 57 (fator)
+
+
+Estado 38
+
+   28 expressao-decl: ";" •
+
+    $padrão  reduzir usando a regra 28 (expressao-decl)
+
+
+Estado 39
+
+   54 fator: "(" • expressao ")"
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 59
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 40
+
+   17 composto-decl: "{" local-declaracoes statement-lista "}" •
+
+    $padrão  reduzir usando a regra 17 (composto-decl)
+
+
+Estado 41
+
+   29 selecao-decl: "if" • "(" expressao ")" statement
+   30             | "if" • "(" expressao ")" statement "else" statement
+
+    "("  deslocar, e ir ao estado 60
+
+
+Estado 42
+
+   31 iteracao-decl: "while" • "(" expressao ")" statement
+
+    "("  deslocar, e ir ao estado 61
+
+
+Estado 43
+
+   32 retorno-decl: "return" • ";"
+   33             | "return" • expressao ";"
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    ";"  deslocar, e ir ao estado 62
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 63
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 44
+
+   23 statement: composto-decl •
+
+    $padrão  reduzir usando a regra 23 (statement)
+
+
+Estado 45
+
+   20 statement-lista: statement-lista statement •
+
+    $padrão  reduzir usando a regra 20 (statement-lista)
+
+
+Estado 46
+
+   22 statement: expressao-decl •
+
+    $padrão  reduzir usando a regra 22 (statement)
+
+
+Estado 47
+
+   24 statement: selecao-decl •
+
+    $padrão  reduzir usando a regra 24 (statement)
+
+
+Estado 48
+
+   25 statement: iteracao-decl •
+
+    $padrão  reduzir usando a regra 25 (statement)
+
+
+Estado 49
+
+   26 statement: retorno-decl •
+
+    $padrão  reduzir usando a regra 26 (statement)
+
+
+Estado 50
+
+   27 expressao-decl: expressao • ";"
+
+    ";"  deslocar, e ir ao estado 64
+
+
+Estado 51
+
+   34 expressao: var • "=" expressao
+   55 fator: var •
+
+    "="  deslocar, e ir ao estado 65
+
+    $padrão  reduzir usando a regra 55 (fator)
+
+
+Estado 52
+
+   35 expressao: simples-expressao •
+
+    $padrão  reduzir usando a regra 35 (expressao)
+
+
+Estado 53
+
+   38 simples-expressao: soma-expressao • relacional soma-expressao
+   39                  | soma-expressao •
+   46 soma-expressao: soma-expressao • soma termo
+
+    "<="  deslocar, e ir ao estado 66
+    "<"   deslocar, e ir ao estado 67
+    ">"   deslocar, e ir ao estado 68
+    ">="  deslocar, e ir ao estado 69
+    "=="  deslocar, e ir ao estado 70
+    "!="  deslocar, e ir ao estado 71
+    "+"   deslocar, e ir ao estado 72
+    "-"   deslocar, e ir ao estado 73
+
+    $padrão  reduzir usando a regra 39 (simples-expressao)
+
+    relacional  ir ao estado 74
+    soma        ir ao estado 75
+
+
+Estado 54
+
+   47 soma-expressao: termo •
+   50 termo: termo • mult fator
+
+    "*"  deslocar, e ir ao estado 76
+    "/"  deslocar, e ir ao estado 77
+
+    $padrão  reduzir usando a regra 47 (soma-expressao)
+
+    mult  ir ao estado 78
+
+
+Estado 55
+
+   51 termo: fator •
+
+    $padrão  reduzir usando a regra 51 (termo)
+
+
+Estado 56
+
+   56 fator: ativacao •
+
+    $padrão  reduzir usando a regra 56 (fator)
+
+
+Estado 57
+
+   37 var: ID "[" • expressao "]"
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 79
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 58
+
+   58 ativacao: ID "(" • args ")"
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    $padrão  reduzir usando a regra 60 (args)
+
+    expressao          ir ao estado 80
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+    args               ir ao estado 81
+    arg-lista          ir ao estado 82
+
+
+Estado 59
+
+   54 fator: "(" expressao • ")"
+
+    ")"  deslocar, e ir ao estado 83
+
+
+Estado 60
+
+   29 selecao-decl: "if" "(" • expressao ")" statement
+   30             | "if" "(" • expressao ")" statement "else" statement
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 84
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 61
+
+   31 iteracao-decl: "while" "(" • expressao ")" statement
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 85
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 62
+
+   32 retorno-decl: "return" ";" •
+
+    $padrão  reduzir usando a regra 32 (retorno-decl)
+
+
+Estado 63
+
+   33 retorno-decl: "return" expressao • ";"
+
+    ";"  deslocar, e ir ao estado 86
+
+
+Estado 64
+
+   27 expressao-decl: expressao ";" •
+
+    $padrão  reduzir usando a regra 27 (expressao-decl)
+
+
+Estado 65
+
+   34 expressao: var "=" • expressao
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 87
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 66
+
+   40 relacional: "<=" •
+
+    $padrão  reduzir usando a regra 40 (relacional)
+
+
+Estado 67
+
+   41 relacional: "<" •
+
+    $padrão  reduzir usando a regra 41 (relacional)
+
+
+Estado 68
+
+   42 relacional: ">" •
+
+    $padrão  reduzir usando a regra 42 (relacional)
+
+
+Estado 69
+
+   43 relacional: ">=" •
+
+    $padrão  reduzir usando a regra 43 (relacional)
+
+
+Estado 70
+
+   44 relacional: "==" •
+
+    $padrão  reduzir usando a regra 44 (relacional)
+
+
+Estado 71
+
+   45 relacional: "!=" •
+
+    $padrão  reduzir usando a regra 45 (relacional)
+
+
+Estado 72
+
+   48 soma: "+" •
+
+    $padrão  reduzir usando a regra 48 (soma)
+
+
+Estado 73
+
+   49 soma: "-" •
+
+    $padrão  reduzir usando a regra 49 (soma)
+
+
+Estado 74
+
+   38 simples-expressao: soma-expressao relacional • soma-expressao
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    var             ir ao estado 88
+    soma-expressao  ir ao estado 89
+    termo           ir ao estado 54
+    fator           ir ao estado 55
+    ativacao        ir ao estado 56
+
+
+Estado 75
+
+   46 soma-expressao: soma-expressao soma • termo
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    var       ir ao estado 88
+    termo     ir ao estado 90
+    fator     ir ao estado 55
+    ativacao  ir ao estado 56
+
+
+Estado 76
+
+   52 mult: "*" •
+
+    $padrão  reduzir usando a regra 52 (mult)
+
+
+Estado 77
+
+   53 mult: "/" •
+
+    $padrão  reduzir usando a regra 53 (mult)
+
+
+Estado 78
+
+   50 termo: termo mult • fator
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    var       ir ao estado 88
+    fator     ir ao estado 91
+    ativacao  ir ao estado 56
+
+
+Estado 79
+
+   37 var: ID "[" expressao • "]"
+
+    "]"  deslocar, e ir ao estado 92
+
+
+Estado 80
+
+   62 arg-lista: expressao •
+
+    $padrão  reduzir usando a regra 62 (arg-lista)
+
+
+Estado 81
+
+   58 ativacao: ID "(" args • ")"
+
+    ")"  deslocar, e ir ao estado 93
+
+
+Estado 82
+
+   59 args: arg-lista •
+   61 arg-lista: arg-lista • "," expressao
+
+    ","  deslocar, e ir ao estado 94
+
+    $padrão  reduzir usando a regra 59 (args)
+
+
+Estado 83
+
+   54 fator: "(" expressao ")" •
+
+    $padrão  reduzir usando a regra 54 (fator)
+
+
+Estado 84
+
+   29 selecao-decl: "if" "(" expressao • ")" statement
+   30             | "if" "(" expressao • ")" statement "else" statement
+
+    ")"  deslocar, e ir ao estado 95
+
+
+Estado 85
+
+   31 iteracao-decl: "while" "(" expressao • ")" statement
+
+    ")"  deslocar, e ir ao estado 96
+
+
+Estado 86
+
+   33 retorno-decl: "return" expressao ";" •
+
+    $padrão  reduzir usando a regra 33 (retorno-decl)
+
+
+Estado 87
+
+   34 expressao: var "=" expressao •
+
+    $padrão  reduzir usando a regra 34 (expressao)
+
+
+Estado 88
+
+   55 fator: var •
+
+    $padrão  reduzir usando a regra 55 (fator)
+
+
+Estado 89
+
+   38 simples-expressao: soma-expressao relacional soma-expressao •
+   46 soma-expressao: soma-expressao • soma termo
+
+    "+"  deslocar, e ir ao estado 72
+    "-"  deslocar, e ir ao estado 73
+
+    $padrão  reduzir usando a regra 38 (simples-expressao)
+
+    soma  ir ao estado 75
+
+
+Estado 90
+
+   46 soma-expressao: soma-expressao soma termo •
+   50 termo: termo • mult fator
+
+    "*"  deslocar, e ir ao estado 76
+    "/"  deslocar, e ir ao estado 77
+
+    $padrão  reduzir usando a regra 46 (soma-expressao)
+
+    mult  ir ao estado 78
+
+
+Estado 91
+
+   50 termo: termo mult fator •
+
+    $padrão  reduzir usando a regra 50 (termo)
+
+
+Estado 92
+
+   37 var: ID "[" expressao "]" •
+
+    $padrão  reduzir usando a regra 37 (var)
+
+
+Estado 93
+
+   58 ativacao: ID "(" args ")" •
+
+    $padrão  reduzir usando a regra 58 (ativacao)
+
+
+Estado 94
+
+   61 arg-lista: arg-lista "," • expressao
+
+    ID   deslocar, e ir ao estado 36
+    NUM  deslocar, e ir ao estado 37
+    "("  deslocar, e ir ao estado 39
+
+    expressao          ir ao estado 97
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 95
+
+   29 selecao-decl: "if" "(" expressao ")" • statement
+   30             | "if" "(" expressao ")" • statement "else" statement
+
+    ID        deslocar, e ir ao estado 36
+    NUM       deslocar, e ir ao estado 37
+    ";"       deslocar, e ir ao estado 38
+    "("       deslocar, e ir ao estado 39
+    "{"       deslocar, e ir ao estado 27
+    "if"      deslocar, e ir ao estado 41
+    "while"   deslocar, e ir ao estado 42
+    "return"  deslocar, e ir ao estado 43
+
+    composto-decl      ir ao estado 44
+    statement          ir ao estado 98
+    expressao-decl     ir ao estado 46
+    selecao-decl       ir ao estado 47
+    iteracao-decl      ir ao estado 48
+    retorno-decl       ir ao estado 49
+    expressao          ir ao estado 50
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 96
+
+   31 iteracao-decl: "while" "(" expressao ")" • statement
+
+    ID        deslocar, e ir ao estado 36
+    NUM       deslocar, e ir ao estado 37
+    ";"       deslocar, e ir ao estado 38
+    "("       deslocar, e ir ao estado 39
+    "{"       deslocar, e ir ao estado 27
+    "if"      deslocar, e ir ao estado 41
+    "while"   deslocar, e ir ao estado 42
+    "return"  deslocar, e ir ao estado 43
+
+    composto-decl      ir ao estado 44
+    statement          ir ao estado 99
+    expressao-decl     ir ao estado 46
+    selecao-decl       ir ao estado 47
+    iteracao-decl      ir ao estado 48
+    retorno-decl       ir ao estado 49
+    expressao          ir ao estado 50
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 97
+
+   61 arg-lista: arg-lista "," expressao •
+
+    $padrão  reduzir usando a regra 61 (arg-lista)
+
+
+Estado 98
+
+   29 selecao-decl: "if" "(" expressao ")" statement •
+   30             | "if" "(" expressao ")" statement • "else" statement
+
+    "else"  deslocar, e ir ao estado 100
+
+    "else"   [reduzir usando a regra 29 (selecao-decl)]
+    $padrão  reduzir usando a regra 29 (selecao-decl)
+
+
+Estado 99
+
+   31 iteracao-decl: "while" "(" expressao ")" statement •
+
+    $padrão  reduzir usando a regra 31 (iteracao-decl)
+
+
+Estado 100
+
+   30 selecao-decl: "if" "(" expressao ")" statement "else" • statement
+
+    ID        deslocar, e ir ao estado 36
+    NUM       deslocar, e ir ao estado 37
+    ";"       deslocar, e ir ao estado 38
+    "("       deslocar, e ir ao estado 39
+    "{"       deslocar, e ir ao estado 27
+    "if"      deslocar, e ir ao estado 41
+    "while"   deslocar, e ir ao estado 42
+    "return"  deslocar, e ir ao estado 43
+
+    composto-decl      ir ao estado 44
+    statement          ir ao estado 101
+    expressao-decl     ir ao estado 46
+    selecao-decl       ir ao estado 47
+    iteracao-decl      ir ao estado 48
+    retorno-decl       ir ao estado 49
+    expressao          ir ao estado 50
+    var                ir ao estado 51
+    simples-expressao  ir ao estado 52
+    soma-expressao     ir ao estado 53
+    termo              ir ao estado 54
+    fator              ir ao estado 55
+    ativacao           ir ao estado 56
+
+
+Estado 101
+
+   30 selecao-decl: "if" "(" expressao ")" statement "else" statement •
+
+    $padrão  reduzir usando a regra 30 (selecao-decl)

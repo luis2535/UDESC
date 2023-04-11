@@ -1,0 +1,17 @@
+create table Ingressos (
+	cod_ingresso integer NOT NULL,
+	assento integer,
+	preco double precision,
+	numero_ingresso integer,
+	primary key (cod_ingresso)
+);
+
+create table Torcedores (
+	cod_torcedor integer NOT NULL,
+	nome character varying(50),
+	idade integer,
+	nacionalidade character varying (50),
+	cod_ingresso integer NOT NULL,
+	primary key (cod_torcedor),
+	foreign key (cod_ingresso) references Ingressos
+);

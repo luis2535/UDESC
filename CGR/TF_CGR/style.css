@@ -1,0 +1,29 @@
+html, body {
+  margin: 10px;
+  padding: 0;
+  /* background:  linear-gradient( 45deg, red, green, yellow, blue ); */
+  /*background: #FFFFFF url("/Mascote-png.png");*/
+  background: linear-gradient( 45deg, #000000, #000000, #000000, #000000 );
+}
+
+/* canvas {
+  margin-bottom: 20px;
+  width: 50%;
+} */
+
+canvas{
+  border-bottom: 10px solid #00ff00;
+  border-top: 10px solid #00ff00;
+  border-left: 10px solid #00ff00;
+  border-right: 10px solid #00ff00;
+  margin-top: 20px;
+  margin-left: 28%;
+}
+
+.vertical {
+  /*transform: rotate(270deg) translateX(-100%);*/
+  transform-origin: top left;
+  /* margin-top: 165px; */
+  display: inline-block;
+  border: 1px solid black;
+}

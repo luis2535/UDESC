@@ -1,0 +1,148 @@
+create table pessoa(
+	ssn int primary key,
+	pnome varchar(50),
+	minicial varchar(50),
+	unome varchar(50),
+	dnasc date,
+	sexo char(1),
+	numero int,
+	rua varchar(100),
+	numapto int,
+	cidade varchar(100),
+	estado char(2),
+	cep varchar(20)	
+);
+
+create table aluno(
+	ssn int primary key,
+	turma varchar(50),
+	foreign key (ssn) references pessoa
+);
+
+create table Docente(
+	ssn int primary key,
+	escritorio varchar(20),
+	categoria varchar(20),
+	salario int,
+	ffone varchar(20),
+	foreign key (ssn) references pessoa	
+);
+
+create table Faculdade(
+	fnome varchar(50) primary key,
+	escritorio varchar(20),
+	reitor varchar(20)
+);
+
+create table Departamento(
+	dnome varchar(50) primary key,
+	dfone varchar(20),
+	escritorio varchar(20)
+);
+
+create table Bolsa(
+	num int primary key,
+	titulo varchar(50),
+	agencia varchar(50),
+	datain date
+);
+
+create table aluno_grad(
+	ssn int primary key,
+	faculdade varchar(50),
+	grau int,
+	ano int,
+	foreign key (ssn) references pessoa
+);
+
+create table curso(
+	c int primary key,
+	unome varchar(50),
+	cdesc varchar(50)
+);
+
+create table disciplina(
+	disc int primary key,
+	ano int,
+	trim int
+);
+
+create table disciplina_corrente(
+	disc int primary key,
+	foreign key (disc) references disciplina
+);
+
+
+alter table departamento add column ssn INT,
+add constraint ssn
+foreign key (ssn) references Docente(ssn)
+
+
+alter table departamento add column fnome varchar(50),
+add constraint fnome
+foreign key (fnome) references Faculdade(fnome)
+
+alter table curso add column dnome varchar(50),
+add constraint dnome
+foreign key (dnome) references departamento(dnome)
+
+alter table Aluno add column dnome_opta varchar(50),
+add constraint dnome_opta
+foreign key (dnome_opta) references departamento(dnome)
+
+alter table Aluno add column dnome_habilita varchar(50),
+add constraint dnome_habilita
+foreign key (dnome_habilita) references departamento(dnome)
+
+alter table aluno_grad add column orientador int,
+add constraint orientador
+foreign key (orientador) references Docente(ssn)
+
+alter table disciplina add column curso int,
+add constraint curso
+foreign key (curso) references curso(c)
+
+create table banca(
+	ssn_docente int,
+	ssn_alunograd int,
+	constraint ssn_docente
+		foreign key (ssn_docente)
+		references Docente(ssn),
+	constraint ssn_alunograd
+		foreign key (ssn_alunograd)
+		references aluno_grad(ssn)
+);
+
+create table pertence(
+	ssn_docente int,
+	dnome varchar(50),
+	constraint ssn_docente
+		foreign key (ssn_docente)
+		references Docente(ssn),
+	constraint dnome
+		foreign key (dnome)
+		references departamento(dnome)
+);
+
+create table registrado(
+	ssn_aluno int,
+	disc int,
+	constraint ssn_aluno
+		foreign key(ssn_aluno)
+		references aluno(ssn),
+	constraint disc
+		foreign key(disc)
+		references disciplina_corrente(disc)
+);
+
+create table historico(
+	ssn_aluno int,
+	disc int,
+	nota int,
+	constraint ssn_aluno
+		foreign key(ssn_aluno)
+		references aluno(ssn),
+	constraint disc
+		foreign key(disc)
+		references disciplina(disc)
+);

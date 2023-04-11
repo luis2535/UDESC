@@ -1,0 +1,22 @@
+Diário de Bordo 23/03
+
+Variantes da (definição de) Máquina de Turing
+
+Dependendo do problema que tivermos, existem problemas que é mais interessante programar em uma máquina de turing do que em outra. Não necessariamente uma feature a mais vai acrescentar poder computacional nas máquinas, essas features apenas facilitam a resolução de determinados problemas.
+
+Máquina de Turing com movimento estacionário:
+
+Sobre a estrutura algébrica da Máquina, ele é quase similar a estrutura padrão, porém ao invés de ter apenas a opção de movimento para direita(D) e para esquerda(E) também pode ficar parada(P). O cabeçote continua na mesma posição com P.
+Todas as palavras aceitas pela Máquina do Sipser devem ser aceitas pela Máquina de movimento estacionário, e nenhuma a mais. Se eu conseguir simular a máquina de movimento estacionário usnado a de sipser, então eu consigo provar que realmente elas operam sobre a mesma linguagem.
+Podemos fazer essa prova da seguinte maneira: Construimos um estado a mais em que iremos passar para a direita o cabeçote e após isso iremos retornar para o estado que estavamos antes movimentando o cabeçote para a esquerda, apenas escrevendo na fita novamente o simbolo sobre o qual o cabeçote esteve durante essa troca de estados.
+
+Máquina de Turing Multifitas:
+Número fixo de fitas(denotaremos MTk a MT com k fitas).
+Cada fita com sua própria cabeça de leitura e escrita.
+Entrada é colocada na primeira fita, sendo as demais inicializadas somente com brancos.
+A estrutura também será similar apenas com breves mudanças e também temos um teorema para provar que a linguagem da Máquina de Sipser é a mesma linguagem aceita pela Máquina Multifitas.
+Basicamente na Máquina normal, a fita possuirá delimitadores com um algum símbolo (# por exemplo), que marcarão onde cada fita se inicia e onde cada fita termina.
+
+Acredito que essas máquinas variantes devem facilitar muito o desenvolvimento de algumas máquinas, acredito que para a resolução dos exercícios da aula passada se eu tivesse utilizada principalmente a máquina de multifitas eu teria muito menos dificuldade em fazer o autômato.
+
+Os exercícios acredito que eu tenha feito de maneira meio errada, acabei tendo pouco tempo por que só fiquei sabendo na aula de terça que teria que entregar na quarta e tive o dia meio cheio, e durante a produção eu sinto que começava certo e depois de um tempo começava a ficar confuso, mas depois da entrega eu parei pra dar uma estudada melhor e tentar entender o que estava acontecendo direito e acho que agora eu teria feito uma entrega com um desenvolvimento um pouco mais claro e provavelmente de maneira correta.

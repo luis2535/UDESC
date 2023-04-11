@@ -1,0 +1,21 @@
+Diário de bordo 30/03
+
+Máquina de Turing Não Determinísitca:
+
+A diferença entra a Maquina de Turing Deterministica (MTD) e a Não deterministica (MTND) é a função programa. A partir de um estado pode haver mais de uma opção de segmento para o mesmo símbolo lido. Também há mudanças no critério de aceitação, rejeição e loop.
+Cada opção abre uma nova árvore de configurações.
+Por exemplo, para a transição F(q0,0) = {(q0,1,D), (q0, 0, D), (q0, 0, E)}
+Quando o cabeçote estiver em 0 ele tem 3 possíveis caminhos e não tem como dizer com exatidão qual caminho deve ser seguido. O importante é achar um caminho para o estado de aceitação, independente da maneira.
+Todos os caminhos devem rejeitar para a maquina rejeitar.
+Se nenhum caminho entra no estado de aceitação existe um caminho processando infinitamente.
+Não tem como ter infinitas possibilidades pois o maior número de possibilidades é 2**(estados * alfabeto * {E,D})
+Trocando o estado de aceitação pelo de rejeição não me garante que o que eu rejeitava eu vou aceitar e nem vice versa, diferente de se eu fizer o mesmo para a MTD.
+Para toda MTD M deterministica deve-se ter uma não determinística que reconhece a mesma linguagem de M e dada uma MTDN N deve-se ter uma MTD que reconheça a mesma linguagem N.
+Para prova dada uma MTND N devemos construir uma MT Mn que reconheça a linguagem N.
+Para isso vamos construir 3 fitas.
+
+Fita 1: Manter a entrada
+Fita 2: Fita de trabalho
+Fita 3: A cadeia 3 serve para guardar simbolos e saber os caminhos.
+
+

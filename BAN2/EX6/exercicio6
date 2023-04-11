@@ -1,0 +1,42 @@
+--1)      Mostre o nome e a função dos mecânicos.
+
+create view nome_funcao(nome, funcao) as select nome, funcao from mecanico
+
+--2)      Mostre o modelo e a marca dos veículos dos clientes.
+
+create view modelo_marca(modelo, marca) as select modelo, marca from veiculo
+
+--3)      Mostre o nome dos mecânicos, o nome dos clientes, o modelo dos veículos e a data e hora dos consertos realizados.
+
+create view mec_cliente_conserto(mec_nome, cliente_nome, v_modelo, data, hora) as
+select m.nome, c.nome, v.modelo, c1.data, c1.hora from conserto c1 join mecanico m using (codm) join veiculo v using (codv) join cliente c using (codc)
+
+--4)      Mostre o ano dos veículos e a média de quilometragem para cada ano.
+
+create view ano_quilometragem(ano, media_km) as
+select distinct ano, avg(quilometragem) from veiculo group by ano
+
+--5)      Mostre o nome dos mecânicos e o total de consertos feitos por um mecânico em cada dia.
+
+create view mec_consertos_pdia(nome, data, n_consertos) as 
+select m.nome, c1.data, count(*) from mecanico m join conserto c1 using (codm) group by m.nome, c1.data
+
+--6)      Mostre o nome dos setores e o total de consertos feitos em um setor em cada dia.
+
+create view setor_consertos_data (nome_setor, data, n_consertos) as
+select s.nome, c.data, count(*) from conserto c join mecanico m using (codm) join setor s using (cods) group by s.nome, c.data
+
+--7)      Mostre o nome das funções e o número de mecânicos que têm uma destas funções.
+
+create view mec_por_setor(nome_set, quant_mec) as
+select s.nome, count(*) from setor s join mecanico m using (cods) group by s.nome
+
+--8)      Mostre o nome dos mecânicos e suas funções e, para os mecânicos que estejam alocados a um setor, informe também o número e nome do setor.
+
+create view mec_setor(nome_mec, funcao, cods, nome_setor) as
+select m.nome, m.funcao, m.cods, s.nome from mecanico m join setor s using (cods)
+
+
+--9)      Mostre o nome das funções dos mecânicos e a quantidade de consertos feitos agrupado por cada função.
+
+select funcao, count(*) from mecanico join conserto c using(codm) group by funcao

@@ -1,0 +1,18 @@
+Diário de bordo aula 14/março
+
+Uma maquina de turing sempre é uma reconhecedora, se for uma palavra da linguagem da máquina, ela irá aceitar, se não for ela pode ou dar uma resposta de rejeição ou não dar resposta nenhuma, entrando em looping.
+Para uma linguagem ser decidível, existe uma máquina de turing que aceita a linguagem de determinado problema e sempre dará uma resposta.
+Se uma máquina de turing for decisora ela não entrará em loop.
+Uma linguagem decidível sempre tem uma máquina de turing decisora(porém nem todas as máquina que a resolvem são decisoras).
+Configuração inicial da Máquina de turing:
+- Entrada com x simbolos pertencentes ao alfabeto(formando uma palavra) é posicionado nas x posições da esquerda da fita.
+- Restante da fita preenchida com caracter especial.
+- Cabeçote posicionado na célula mais a esquerda da fita.
+- Controle de estado no estado inicial.
+Não estava entendendo muito bem como que era decidido se a fita iria para esquerda ou para a direita, mas agora percebi que consta na transição da máquina se quando um caracter for lido para qual lado o cabeçote de leitura será direcionado.
+Se vai para a esquerda e ja está na posição mais a esquerda o cabeçote fica no mesmo lugar.
+Se o estado que o cabeçote está não é de aceitação, verifica para onde vai com a função programa.
+A transição é escrita no seguinte formato (x,y,l), onde x é o caracter lido, y é o caracter escrito e l o lado que o cabeçote deve apontar.]
+Para representar o conteúdo do máquina durante o processamento sem perder informação, deve se representar todos os itens até chegar uma sequência de infinitos espaços em branco, não necessarimente no primeiro branco.
+Por exemplo, para uma palavra 10010 no estado q0, a representação da configuração deve ser (q0)10010
+As palavras que eu consigo ir da configuração inicial para configuração aceitação final fazem parte da linguagem da máquina.

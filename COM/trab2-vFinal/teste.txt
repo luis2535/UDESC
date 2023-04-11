@@ -1,0 +1,7 @@
+int main(){
+    int b;
+    int a;
+    b = 5 + 1;
+    a = 6 / 3;
+    return 0;
+}

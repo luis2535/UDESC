@@ -1,0 +1,58 @@
+Explicação 1:
+Para computar a função f(n) usando uma Máquina de Turing, precisamos seguir os seguintes passos:
+
+    Ler a entrada de n em binário a partir da fita.
+    Iniciar o cabeçote da fita na posição do bit menos significativo (mais à direita) de n.
+    Verificar se n é par ou ímpar:
+        Se for par, então duplicar n e continuar para a etapa 6.
+        Se for ímpar, então adicionar 1 a n e continuar para a etapa 4.
+    Dividir n por 2 e atualizar o valor de n com o resultado da divisão.
+    Se n for maior que zero, voltar para a etapa 3. Caso contrário, continuar para a etapa 6.
+    Escrever o resultado (2n) na fita e parar a máquina.
+
+Aqui está um exemplo de como a Máquina de Turing pode executar a função f(n) para a entrada binária "101" (que representa o número 5 em decimal):
+
+    Lendo a entrada "101" da fita.
+    Iniciando o cabeçote na posição do bit menos significativo.
+    Como 5 é ímpar, adicionamos 1 e atualizamos n para 6. Continuamos para a etapa 4.
+    Dividimos 6 por 2, obtendo 3. Atualizamos n para 3 e voltamos para a etapa 3.
+    Como 3 é ímpar, adicionamos 1 e atualizamos n para 4. Continuamos para a etapa 6.
+    Duplicamos 4, obtendo 8. Escrevemos "1000" na fita e paramos a máquina.
+
+Portanto, a saída da função f(5) é 2*5 = 10, que é representado na fita como "1000" em binário.
+Explicação 2:
+Para descrever uma máquina de Turing que compute a função f(n) = 2n caso n seja par, e f(n) = n + 1 caso n seja ímpar, podemos seguir o seguinte algoritmo:
+
+    Comece na célula inicial da fita, com o número binário n escrito na fita, e um espaço em branco após o último dígito.
+    Verifique se o último dígito da entrada é 0 (par). Se sim, vá para o passo 4. Caso contrário, vá para o passo 3.
+    Se o último dígito da entrada é 1 (ímpar), escreva um 0 no final da entrada e vá para o passo 4.
+    Mova o cabeçote de leitura/escrita para o início da entrada.
+    Duplique cada dígito da entrada, começando pelo mais significativo, escrevendo o resultado na fita após o dígito duplicado. Ou seja, se a entrada for "101", o novo valor na fita será "101010".
+    Mova o cabeçote de leitura/escrita para o início da entrada.
+    Se o primeiro dígito da entrada é 0, vá para o passo 8. Caso contrário, vá para o passo 9.
+    Escreva um 0 no primeiro dígito da entrada e mova o cabeçote de leitura/escrita para o espaço em branco após a entrada.
+    Adicione 1 ao primeiro dígito da entrada e mova o cabeçote de leitura/escrita para o espaço em branco após a entrada.
+    Escreva um espaço em branco na fita e pare.
+
+Essa máquina de Turing irá duplicar a entrada e depois adicionar 1 ao primeiro dígito, se for par, ou adicionar um dígito 0 ao final e, em seguida, adicionar 1 ao primeiro dígito, se for ímpar. O resultado final será escrito na fita e o cabeçote de leitura/escrita irá parar no espaço em branco após o último dígito do resultado.
+
+Exercicio 2:
+A linguagem {0^n1^k0^m | ∃ n,k,m∈N, n+k≤m} pode ser descrita como uma sequência de 0's seguida por uma sequência de 1's e terminada por uma sequência de 0's, onde o comprimento total da sequência de 0's e 1's é maior ou igual ao comprimento da sequência de 0's.
+
+Para reconhecer essa linguagem usando uma máquina de Turing, podemos seguir os seguintes passos:
+
+    Comece na célula inicial da fita, apontando para o primeiro símbolo.
+    Verifique se o símbolo atual é um 0. Se não, rejeite a entrada.
+    Avance a cabeça de leitura até encontrar o primeiro símbolo 1. Se não encontrar um 1, rejeite a entrada.
+    Avance a cabeça de leitura até o último símbolo 1.
+    Avance a cabeça de leitura até encontrar o primeiro símbolo 0 após o último 1. Se não houver mais 0's na fita, pare e aceite a entrada.
+    Avance a cabeça de leitura até o último símbolo 0 na fita.
+    Volte para o primeiro símbolo da fita.
+    Repita os passos 2 a 6 até que a fita termine ou a condição de aceitação seja satisfeita.
+
+A ideia é verificar se existe uma sequência válida de 0's e 1's na fita, onde a sequência de 0's contém pelo menos tantos símbolos quanto a sequência de 0's e 1's juntas. O passo 2 garante que a sequência comece com 0's, o passo 3 encontra o primeiro 1 e o passo 4 encontra o último 1, permitindo verificar se há pelo menos uma sequência de 1's. O passo 5 encontra o primeiro 0 após a sequência de 1's, e o passo 6 encontra o último 0 na fita, permitindo verificar se há pelo menos tantos 0's quanto a soma de 0's e 1's na fita. O passo 7 volta para o início da fita, para continuar procurando por outras possíveis sequências válidas.
+
+Se a máquina de Turing concluir que não existe uma sequência válida de 0's e 1's na fita, a entrada será rejeitada. Caso contrário, a máquina irá aceitar a entrada.
+
+
+cada vez q eu reconheço uma um 0 após uma sequencia de 0 e 1 eu retorno substituo o zero de m por um x e vou para o inicio e substituo por o zero por z e os 1 por y, a cada vez q eu encontro um novo 0 após o x, eu subsittuo um valor do inicio, se no final quando eu substituir o ultimo x não houver mais valor de 0 ou 1 antes do primeiro x eu reconheço a linguagem.

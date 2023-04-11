@@ -1,0 +1,48 @@
+--1
+
+select nome, endereco from cliente;
+
+--2
+
+select nome, funcao from mecanico where cods = 2;
+
+--3
+
+select m.nome, m.cpf from mecanico m left  join cliente c on (c.cpf = m.cpf)
+
+--4
+
+select distinct c.cidade from cliente c union select distinct m.cidade from mecanico m
+
+--5
+
+select distinct marca from veiculo v join cliente c using (codc) where c.cidade ilike 'Joinville'
+
+--6
+
+select distinct funcao from mecanico
+
+--7
+
+select * from cliente where idade > 25
+
+--8
+
+select m.cpf, m.nome from mecanico m left join setor s using (cods) where s.nome = 'Mecânica'
+
+--9
+
+select distinct m.cpf, m.nome from mecanico m full join conserto c using (codm) where c.data = '13/06/2014' 
+
+--10
+
+select distinct c.nome, v.modelo, m.nome, m.funcao from conserto join mecanico m using (codm) join veiculo v using (codv) join cliente c using(codc)
+
+--11
+
+select m.nome, c.nome, c1.hora from conserto c1 join mecanico m using (codm) join veiculo using (codv) join cliente c using (codc) where c1.data = '19/06/2014'
+
+--12
+
+select distinct s.cods, s.nome from conserto c join mecanico using (codm) join setor s using (cods) where c.data > '12/06/2014' and c.data < '14/06/2014'
+

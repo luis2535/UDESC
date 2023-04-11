@@ -1,0 +1,62 @@
+x1 = area plantada de arroz
+x2 = area plantada de milho
+
+max z = 5x1 + 2x2
+
+
+
+
+
+S,A {
+
+	X1 <= 3
+	X2 <=4
+	
+	1X1 + 2X2 <= 9
+	X1, X2 >= 0
+
+
+}
+
+X1 + 2X2 = 9
+PONTOS(0 ; 9)
+PONTOS(4,5 ; 0)
+
+X1 = 3
+
+X1 <=3
+RETA PERPENDICULAR A X1 COM X1 = 3
+
+X2 <=4
+RETA PERPENDICULAR A X2 COM X2 = 4
+
+X1 EIXO HORIZONTAL E X2 EIXO VERTICAL
+
+AREA QUE ATENDE A TODAS AS SOLUÇÕES
+
+
+ENCONTRA UM PONTO ÓTIMO E CALCULA AS REGRAS
+
+
+
+
+
+EXERCICIO 5)
+
+X1 = GRÃO1
+X2 = GRÃO2
+X3 = GRÃO3
+
+MIN Z = 41x1 + 35x2 + 96x3
+
+S,A {
+
+2x1 + 3x2 + 7x3 >= 1250
+x1 + x2 >= 250
+5x1 + 3x2 >= 900
+0,6x1 + 0,25x2 + x3 >=232
+
+x1,x2,x3 >=0
+
+
+}

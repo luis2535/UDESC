@@ -1,0 +1,13 @@
+Seleção(#cod_selecao, nome, titulos, uniforme1, uniforme2, &cod_treinador, posicao, &num_grupo) 
+Jogador(#cod_jogador, nome, num_camisa, posicao, idade, altura, peso, num_gols, num_assistencias, 
+        &cod_selecao, [&cod_time],&cod_partida, [&cod_placar], [assistencia]) 
+Treinador(nome, #cod_treinador, nacionalidade, idade) 
+Grupos(#num_grupo)
+Partida(#cod_partida, &cod_selecao1, &cod_selecao2, &cod_arbitro, &cod_estadio, data_acontece, horário_acontece) 
+Arbitro(#cod_arbitro, nome, idade, nacionalidade) 
+Estadio(#cod_estadio, capacidade, endereço, &cod_cidade, cod_bilheteria)
+Cidade(#cod_cidade, nome, pais) 
+Ingressos(#cod_ingresso, assento, preço, numero_ingresso, &cod_bilheteria) 
+Torcedores(#cod_torcedor, nome, idade, nacionalidade, &cod_ingresso) 
+Time(#cod_time, nome, liga) 
+Placar(#cod_placar, gols_time1, gols_time2) 

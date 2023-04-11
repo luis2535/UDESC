@@ -1,0 +1,101 @@
+create table veterinario(
+	crm varchar(20) primary key,
+	nome varchar(50),
+	convenio varchar(50)
+);
+
+create table animal(
+	identificacao int primary key,
+	nome varchar(50),
+	raca varchar(20),
+	sexo char(1)
+);
+
+create table consulta(
+	data date primary key,
+	crm_vet varchar(20),
+	id_animal int,
+	constraint crm_vet
+	foreign key (crm_vet) references veterinario(crm),
+	constraint id_animal
+	foreign key (id_animal) references animal(identificacao)
+);
+
+create table tratamento(
+	data date primary key,
+	crm_vet varchar(20),
+	id_animal int,
+	data_consulta date,
+	descricao varchar(50),
+	foreign key (crm_vet) references veterinario(crm),
+	foreign key (id_animal) references animal(identificacao),
+	foreign key (data_consulta) references consulta(data)
+);
+
+create table sequencia(
+	crm_vet varchar(20),
+	id_animal int,
+	data_consulta date,
+	foreign key (crm_vet) references veterinario(crm),
+	foreign key (id_animal) references animal(identificacao),
+	foreign key (data_consulta) references consulta(data)
+);
+
+create table semen(
+	tipo varchar(30) primary key,
+	caracteristica varchar(30)
+);
+create table curral(
+	numero int primary key,
+	localizacao varchar(50)
+);
+
+create table matriz(
+	identificacao int primary key,
+	num_curral int,
+	foreign key (identificacao) references animal(identificacao),
+	foreign key (num_curral) references curral(numero)
+);
+
+create table reprodutor(
+	identificacao int primary key,
+	foreign key (identificacao) references animal(identificacao)
+);
+
+create table inseminacao(
+	id_inseminacao int primary key,
+	tipo varchar(30),
+	identificacao int,
+	foreign key (identificacao) references matriz(identificacao),
+	foreign key (tipo) references semen(tipo)
+);
+
+create table cobertura(
+	id_cobertura int primary key,
+	id_reprodutor int,
+	id_matriz int,
+	foreign key (id_matriz) references matriz(identificacao),
+	foreign key (id_reprodutor) references reprodutor(identificacao)
+);
+
+alter table animal add column cobertura int,
+	add constraint cobertura
+	foreign key(cobertura) references cobertura(id_cobertura)
+	
+alter table animal add column inseminacao int,
+	add constraint inseminacao
+	foreign key(inseminacao) references inseminacao(id_inseminacao)
+	
+create table adquirido(
+	identificacao int primary key,
+	nome_pai varchar(50),
+	nome_mae varchar(50),
+	valor int,
+	foreign key (identificacao) references animal(identificacao)
+);
+
+create table cria(
+	identificacao int primary key,
+	data_desmame date,
+	foreign key (identificacao) references animal(identificacao)
+);

@@ -1,0 +1,23 @@
+Diario de Bordo
+
+Aula 02 - Máquina de Turign
+
+A aula iniciou com a professora falando um pouco sobre a hierarquia de chomsky, uma hierarquia de linguagens que da mais abrangente para a menos são em ordem: linguagem irrestrita, sensíveis ao contexto, livres de contexto e por fim regulares. Essas linguagens são aquelas que podem ser computadas pelas máquinas de turing. Foi citado que posteriormente veremos algumas linguagens que não podem ser computadas pelas máquinas de turing.
+Máquina de turing é um modelo operacional muito próxima da arquitetura computacional, ao invés de uma cpu com diversas operações tem apenas uma operação cíclica: le, escreve e movimenta.
+Conceitualmente uma máquina de turing possui:
+-Um instrumento para escrever, outro para apagar.
+-Folha de papel dividida em regiões(fita).
+-Movimentos para troca de regiões.
+O que ela pode fazer:
+-Ler um símbolo.
+-Alterar um símbolo existente.
+-Ação dependendo do símbolo lido e do estado.
+Por definição, uma máquina de turing possui:
+-Q -> conjunto de estados
+-Alfabeto de entrada
+-Alfabeto de fita
+-Função de transição
+-Estado inicial q0
+-Estado de aceitação qaceita
+-Estado de rejeição qrejeita e qrejeita =/= qaceita
+Estado inicial pode ser de aceitação ou de rejeição.

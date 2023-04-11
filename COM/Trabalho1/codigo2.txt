@@ -1,0 +1,12 @@
+int main(){
+    int numeroIterado;
+    numeroIterado = 1;
+    int iterador = 20;
+
+    while(iterador != 0){
+        numeroIterado = numeroIterado + numeroIterado * iterador;
+        iterador = iterador - 1;
+    }
+    printf(numeroIterado);
+    return;
+}

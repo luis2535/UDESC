@@ -1,0 +1,15 @@
+int valorA = 50;
+int valorB = 2;
+
+int funcSoma(int valorA, int valorB){
+    int soma = 0;
+    soma = valorA + valorB;
+    return soma;
+}
+
+int main (){
+    int soma;
+    soma = funcSoma(valorA, valorB);
+    printf(soma);
+    return ;
+}

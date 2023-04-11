@@ -1,0 +1,28 @@
+1)
+I. Atualização Perdida
+II. Atualização Temporária
+III. Sumário Incorreto
+
+2)a)
+
+x1 = SPIDERMAN
+x2 = SPIDERMAN
+
+b)
+x1 = SPIDERMAN
+x2 = 100
+x3 = PETER PARKER
+x4 = 100
+x5 = PETER PARKER
+
+3)
+SIM	SIM	SIM
+NÃO	SIM	SIM
+NÃO	NÃO	SIM
+NÃO	NÃO	NÃO
+
+4)c)Durabilidade
+
+5)B)Nonrepeatable Read
+
+6)A) O usuário B irá ler, como saldo em estoque do produto X,o valor que foi atualizado pela transação de A.

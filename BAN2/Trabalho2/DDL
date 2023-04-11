@@ -1,0 +1,85 @@
+CREATE TABLE Usuario(
+	cpf char(11) PRIMARY KEY,
+	pnome varchar(50),
+	unome varchar(50),
+	email varchar(100),
+	senha varchar(100)
+);
+CREATE TABLE Bolsista(
+	cpf char(11) PRIMARY KEY,
+	pnome varchar(50),
+	unome varchar(50),
+	email varchar(100),
+	senha varchar(100),
+	id_bolsista int,
+	curso varchar(50)
+);
+CREATE TABLE Servidor(
+	cpf char(11) PRIMARY KEY,
+	pnome varchar(50),
+	unome varchar(50),
+	email varchar(100),
+	senha varchar(100),
+	id_servidor int,
+	funcao varchar(50)
+);
+CREATE TABLE Responsavel(
+	cpf char(11) PRIMARY KEY,
+	pnome varchar(50),
+	unome varchar(50),
+	email varchar(100),
+	senha varchar(100),
+	id_responsavel int
+);
+CREATE TABLE Bloco(
+	id_bloco int PRIMARY KEY,
+	nome varchar(100),
+	descricao varchar(100)	
+);
+
+CREATE TABLE Quadra(
+	id_quadra int PRIMARY KEY,
+	modalidade varchar(100),
+	descricao varchar(100),
+	id_bloco int,
+	FOREIGN KEY (id_bloco) REFERENCES Bloco
+);
+CREATE TABLE Agendamento(
+	id_agendamento int PRIMARY KEY,
+	horario_inicio time,
+	horario_fim time,
+	data date,
+	status varchar(50),
+	cpf char(11),
+	id_quadra int,
+	FOREIGN KEY (cpf) REFERENCES Usuario,
+	FOREIGN KEY (id_quadra) REFERENCES Quadra
+);
+CREATE TABLE Evento(
+	id_evento int PRIMARY KEY,
+	data date,
+	horario_inicio time,
+	horario_fim time,
+	status varchar(50),
+	nome varchar(100),
+	cpf char(11),
+	FOREIGN KEY (cpf) REFERENCES Usuario
+);
+CREATE TABLE Equipamento(
+	id_equipamento int PRIMARY KEY,
+	tipo varchar(50),
+	descricao varchar(100),
+	quantidade int
+);
+CREATE TABLE Reserva(
+	id_agendamento int,
+	id_equipamento int,
+	FOREIGN KEY (id_agendamento) REFERENCES Agendamento,
+	FOREIGN KEY (id_equipamento) REFERENCES Equipamento
+);
+CREATE TABLE QuadraEvento(
+	id_evento int,
+	id_quadra int,
+	FOREIGN KEY (id_evento) REFERENCES Evento,
+	FOREIGN KEY (id_quadra) REFERENCES Quadra
+);

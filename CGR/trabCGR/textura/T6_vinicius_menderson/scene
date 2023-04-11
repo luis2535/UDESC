@@ -1,0 +1,17 @@
+add sphere -13 0 -10 8 1
+set sphere 0 color 1 0 1
+set sphere 0 shiny 1
+add sphere -1 15 -32 7.5 0
+set sphere 1 color 2.55 2.15 0 
+set sphere 1 shiny .3
+set plane 3 shiny 0.8
+set plane 3 rough 0.02
+set depth 9
+set campos 20 -20 -70
+set zoom 0.88
+set camangle 0.65 0.4 0.05
+set shadowres 40
+set scale 2.4
+render
+export nice.png
+exit

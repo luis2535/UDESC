@@ -1,0 +1,68 @@
+{TIPO} {
+	addTabela(yytext, "tipo", num_lin, num_col);
+    if(strcmp(yytext, "int") == 0) return INT_TYPE_TOKEN;
+    else if(strcmp(yytext, "void") == 0) return VOID_TYPE_TOKEN;
+}
+
+{KEYWORD} {
+	addTabela(yytext, "keyword", num_lin, num_col);
+    if(strcmp(yytext, "if") == 0) return IF_TOKEN;
+    else if(strcmp(yytext, "else") == 0) return ELSE_TOKEN;
+    else if(strcmp(yytext, "while") == 0) return WHILE_TOKEN;
+    else if(strcmp(yytext, "return") == 0) return RETURN_TOKEN;
+	
+}
+{SOMA} {
+	addTabela(yytext, "operador-soma", num_lin, num_col);
+    if(strcmp(yytext, "+") == 0) return ADD_TOKEN;
+    else if(strcmp(yytext, "-") == 0) return SUB_TOKEN;
+}
+{MULT} {
+	addTabela(yytext, "operador-mult", num_lin, num_col);
+    if(strcmp(yytext, "*") == 0) return MULT_TOKEN;
+    else if(strcmp(yytext, "/") == 0) return DIV_TOKEN;
+} 
+{RELACIONAL} {
+	addTabela(yytext, "operador-rel", num_lin, num_col);
+    if(strcmp(yytext, "<") == 0) return SMALLER_TOKEN;
+    else if(strcmp(yytext, ">") == 0) return BIGGER_TOKEN;
+    else if(strcmp(yytext, "<=") == 0) return SMALLER_EQUAL_TOKEN;
+    else if(strcmp(yytext, ">=") == 0) return BIGGER_EQUAL_TOKEN;
+    else if(strcmp(yytext, "!=") == 0) return DIFF_TOKEN;
+    else if(strcmp(yytext, "==") == 0) return COMPARE_TOKEN;
+}
+{ATRIBUICAO} {
+	addTabela(yytext, "operador-atrib", num_lin, num_col);
+    if(strcmp(yytext, "=") == 0) return EQUAL_TOKEN;
+
+}
+{PRINTF} {
+	addTabela(yytext, "printf", num_lin, num_col);
+    if(strcmp(yytext, "print") == 0) return PRINT_TOKEN;
+}
+{COLCHETES} {
+	addTabela(yytext, "colchetes", num_lin, num_col);
+	if(strcmp(yytext, "[") == 0) return OPEN_BRACKET_TOKEN;
+    else if(strcmp(yytext, "]") == 0) return CLOSE_BRACKET_TOKEN;
+
+}
+{PARENTESES} {
+	addTabela(yytext, "parenteses", num_lin, num_col);
+    if(strcmp(yytext, "(") == 0) return OPEN_PARENTHESES_TOKEN;
+    else if(strcmp(yytext, ")") == 0) return CLOSE_PARENTHESES_TOKEN;
+
+}
+{CHAVE} {
+	addTabela(yytext, "chaves", num_lin, num_col);
+    if(strcmp(yytext, "{") == 0) return OPEN_KEYS_TOKEN;
+    else if(strcmp(yytext, "}") == 0) return CLOSE_KEYS_TOKEN;
+
+}
+{VIRGULA} {
+	addTabela(yytext, "virgula", num_lin, num_col);
+	if(strcmp(yytext, ",") == 0) return COMMA_TOKEN;
+}
+{PONTO-E-VIRGULA} {
+	addTabela(yytext, "ponto-virgula", num_lin, num_col);
+    if(strcmp(yytext, ";") == 0) return SEMICOLON_TOKEN;	
+}

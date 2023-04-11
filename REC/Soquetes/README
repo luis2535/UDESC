@@ -1,0 +1,17 @@
+Dupla: Luís Eduardo Bertelli e Yuji Yamada Correa
+
+Trabalho sobre Programação de Soquetes
+
+A implementação foi feita apenas do script cliente.py
+
+No cliente, foram interpretadas todas as possíveis entradas do servidor e cada resposta foi devidamente tratada.
+
+Cada vez que uma entrada indevida é feita, o cliente não permite que essa entrada seja enviada para o servidor, solicitando que o cliente reescreve, para impedir que o servidor quebre.
+
+Para conseguir fazer o cliente funcionar, antes o servidor deve ser acionado.
+
+Para rodar o servidor:
+python3 Servidor.py
+
+Para rodar o cliente:
+python3 cliente.py

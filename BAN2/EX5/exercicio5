@@ -1,0 +1,34 @@
+--1
+select m.cpf, m.nome from mecanico m where m.cods in (1,2)
+
+--2
+select m.cpf, m.nome from mecanico m where m.cods in (select s.cods from setor s where s.nome in ('Funilaria', 'Pintura'))
+
+--3
+select distinct m.cpf, m.nome from mecanico m inner join conserto c using (codm) where c.data = '13/06/2014'
+
+--4
+select m.nome, c.nome, c1.hora from mecanico m inner join conserto c1 using(codm) inner join veiculo v using (codv) inner join cliente c using (codc) where c1.data = '12/06/2014'
+
+--5
+select m.nome, m.funcao, s.cods, s.nome from mecanico m left join setor s using(cods) 
+-- 6
+select distinct m.nome, c1.data from mecanico m inner join conserto c1 using(codm)
+
+--7
+select avg(v.quilometragem) from veiculo v
+
+--8
+select c.cidade, sum(v.quilometragem) from cliente c inner join veiculo v  using (codc) group by c.cidade
+
+--9
+select m.cpf, m.nome, count(*) as consertos from mecanico m inner join conserto c1 using (codm) where c1.data >= '12/06/2014' and c1.data <= '19/06/2014' group by codm
+
+--10
+select v.marca, count(*) as conserto from veiculo v inner join conserto c1 using (codv) group by (v.marca)
+
+--11
+select v.modelo, v.marca, v.ano from veiculo v where v.quilometragem > (select avg(v1. quilometragem) from veiculo v1)
+
+--12
+select m.nome, c1.data, count(*) as consertos from mecanico m inner join conserto c1 using(codm) group by m.codm, c1.data having count(*) > 1

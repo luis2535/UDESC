@@ -1,0 +1,44 @@
+create table veterinario(
+	crm varchar(20) primary key,
+	nome varchar(50),
+	convenio varchar(50)
+);
+
+create table animal(
+	identificacao int primary key,
+	nome varchar(50),
+	raca varchar(20),
+	sexo char(1)
+);
+
+create table consulta(
+	data date primary key,
+	crm_vet varchar(20),
+	id_animal int,
+	constraint crm_vet
+	foreign key (crm_vet) references veterinario(crm),
+	constraint id_animal
+	foreign key (id_animal) references animal(identificacao)
+);
+
+create table tratamento(
+	data date primary key,
+	crm_vet varchar(20),
+	id_animal int,
+	data_consulta date,
+	descricao varchar(50),
+	foreign key (crm_vet) references veterinario(crm),
+	foreign key (id_animal) references animal(identificacao),
+	foreign key (data_consulta) references consulta(data)
+);
+
+create table sequencia(
+	crm_vet varchar(20),
+	id_animal int,
+	data_consulta date,
+	foreign key (crm_vet) references veterinario(crm),
+	foreign key (id_animal) references animal(identificacao),
+	foreign key (data_consulta) references consulta(data)
+);
+
+

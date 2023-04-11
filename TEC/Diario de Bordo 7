@@ -1,0 +1,21 @@
+Diário de Bordo 28/03
+
+Adicionar uma fita na maquina não vai fazer produzir nem menos e nem mais que produziria numa máquina de uma fita apenas, as possibilidades são as mesmas, porém ela facilita o processo, os modelos são equivalentes.
+As fitas serão delimitadas por # e a marcação de ponto acima de um simbolo indicará que a cabeça de fita um fita K está posicionada sobre aquele simbolo.
+Existem procedimentos com passos bem definidos que conseguem resolver essas situações de multiplas fitas usando apenas uma fita infinita, a professora fez uma simulação de uma única transição de estado e essa transição passou pela fita quase inteira fazendo alterações, se fossemos representar isso por uma máquina de turing, teriamos de usar um número muito elevado de estados para percorrer entre as fitas, por isso devido a sabermos que é possível um algoritmo que resolve essas situações, podemos reduzir a utilizar uma máquina de multiplas fitas.
+Como funciona:
+1 - incia com uma fita delimitada por #:
+Ex: #w1w2..wn#_#_#...#
+2 - Varre a fita do primeiro ao (k+1)ésimo # determinando quais simbolos estão marcados com o posicionamento das cabeças de fita(é marcado com um ponto em cima mas eu utilizei *):
+Ex: #w1*w2..wn#_*#_*#...#
+3 - Varre novamente fazendo as atualizações de simbolos conforme as funções de transição.
+4 - Se uma das cabeças chega a #, significa que alcançou o seu fim, então Km escreve um simbolo branco e desloca o conteudo da fita a partir do  # uma posição para direita.
+Hopcroft:
+	- Não possui estado de rejeição. (Rejeita por indefinição)
+	- Fita duplamente infinita.
+	- Conjunto de estados finais(estados de aceitação)
+Fita duplamente Infinita:
+	- Se estende indefinidamente tanto para direita como para esquerda.
+	- Entrada é inserida um símbolo por célula, cabeçote é posicionado no símbolo mais à esquerda da palavra de entrada.
+	- Processamento, aceitação e rejeição usuais
+	- São marcadas o início e o fim da entrada na fita para marcar suas delimitações.

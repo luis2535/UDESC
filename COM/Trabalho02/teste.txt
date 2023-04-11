@@ -1,0 +1,10 @@
+int main(){
+    int a;
+    int b;
+    a = 2;
+    b = 0;
+    if(a == 2)
+        a = a + 1;
+    printf(a);
+    return;
+}

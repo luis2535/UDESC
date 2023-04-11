@@ -1,0 +1,50 @@
+Pré - apresentação:
+Antes de apresentarmoso trabalho para o professor, estavamos com bastante dificuldades de
+entender como fazer o código funcionar, estavamos tomando como base algumas referências, sendo
+elas as disponibilizadas pelo professor e fontes que encontravamos na internet. Nesse primeiro
+momento, haviamos feito testes com a parte léxica e a tabela de símbolos estava sendo gerada
+sem problemas. Apenas tivemos que fazer alguns ajustes para que a ferramenta da análise sintática
+reconhecesse os tokens definidos na ferramenta da análise léxica.
+Quando partimos para a implementação do arquivo da análise sintática, onde começariamos
+a mexer com o bison, acabamos nos equivocando e não começamos pelo básico, tentavamos entender como 
+funcionavam os compiladores que tinhamos de exemplo, os entendiamos até certa parte, porém tentamos fazer
+muita coisa ao mesmo tempo. Nisso, muitos erros estavam sendo reportados, e a maior parte do tempo nós
+gastavamos procurando e arrumando a fonte desses erros, apenas para nos depararmos com outros.
+Nosso programa não estava rodando em conjunto, a nossa tentativa de gerar um arquivo 'output.j' para linguagem
+de baixo nível não estava tendo sucesso também, tinhamos algumas funções que até onde tinhamos entendimento
+estavam funcionando, porém como um todo o trabalho não estava compilando.
+
+Nova entrega:
+Após a conversa com o professor, decidimos começar do básico e ir subindo os passos conforme tinhamos
+sucesso nas implementações. Iniciamos testando o exemplo da calculadora para compreendermos melhor a
+ferramenta funcionando a partir de um exemplo mais simples, e a partir dai fazer também um exemplo simples
+e funcional para a nossa gramática. 
+Iniciamos fazendo alguns ajustes na parte léxica, removendo algumas definições e especificações que não estavamos
+utilizando, para deixar o código mais simples e mais fácil de entender. A partir dai, nós começamos do 0 a escrever 
+o 'trab2.y', tendo cuidado para verificar novos erros a cada etapa que era adicionada. Num primeiro momento, fizemos
+a nossa gramática reconhecer apenas o identificador e operadores relacionais e de soma, percebendo resultados positivos,
+começamos a incrementar a gramática até ela estar dentro dos conformes. Sempre estavamos testando novamente em busca de
+erros para evitar termos o mesmo problema da última vez, dessa vez quando encontravamos alguma coisa, sabiamos sua origem,
+como o programa funcionava sem ele e tinhamos maior facilidade de arrumar.Nisso, o nosso compilador está conseguindo
+realizar a análise sintática conforme a gramática proposta.
+A partir deste ponto, demos ínicio a fase de geração do código da linguagem de baixo nível, que posteriormente seria utiilizado
+juntamente com a ferramenta Jasmin. Já tinhamos alguns trechos de código da nossa entrega que conseguimos reutilizar, porém fomos novamente
+passo a passo, inicialmente tentando gerar o arquivo e escrever seu cabeçalho e após isso partimos para a transcrição de algumas regras da gramática
+para o 'output.j'. Iniciamos com a função generateHeader() e generateFooter(){inserir imagem no .y e no .c}, após isso partimos para a funções mais simples,
+aquelas que apenas transcreviam o comando para o output, sendo elas: funcReturn(), instanciandoValor(), defineVar(), funcSum(), atributeVariable(),
+defineVar(). Nesse momento, o nosso programa já está gerando um 'output.j' dentro dos conformes para alguns códigos mais simples, como por exemplo:
+o seguinte código{imagem teste.txt}, está gerando o seguinte output.j {imagem output.j}.
+Agora tendo um programa que já funciona parcialmente, mesmo que para um código mais simples, conseguimos ter uma visão um pouco melhor
+de como deve ser o funcionamento do compilador e conseguimos ter ideias melhores de como dar sequência nesse projeto. Por termos tempo limitado,
+algumas implementações ficaram faltando, porém agora temos uma noção maior de como implementa-las e suas dificuldades.
+
+Futuras implementações:
+As principais implementações que ficaram faltando foram as seguintes: reconhecimento de função, declaração de arrays e reconhecimento de estruturas como IF/Else
+e While, para as estruturas IF/ELSE e While, já tinhamos na nossa primeira entrega um certo desenvolvimento para elas, possivelmente conseguiriamos aplicar
+elas corretamente dessa vez, porém como temos um curto prazo, decidimos escrever o relatório antes de fazer essa implementação, para garantir que conseguiriamos 
+atender o prazo, porém, a seguir vamos disponibilizar as fotos de como implementamos na entrega anterior. Para as funções, devemos modificar a função para
+procedure caso ela tenha um retorno inteiro e manter função caso tenha um retorno void, a dificuldade encontrada nessa parte é não apenas
+a sua declaração e separação em labels, mas também todas as suas váriaveis tem um escopo diferente do escopo da main. Já para os arrays, nós encontramos dificuldade
+em como eles deveriam ser inseridos na tabela de simbolos e fazer acesso de indices especificos em baixo nível. Também não chegamos a colocar a ferramenta Jasmin em uso.
+Dentro das dificuldades encontradas, vale concluir falando novamente de querermos começar o trabalho já tratando de coisas complexas, sem tentar fazer o básico
+antes, visto que para a entrega anterior perdemos muito tempo arrumando erros e não progredindo no desenvolvimento do trabalho.

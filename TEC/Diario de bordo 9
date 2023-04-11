@@ -1,0 +1,33 @@
+Diário de Bordo 11/04
+
+Existem máquinas de turing que aceitam máquinas de turing como entrada. Como? -> Através da codificação de máquinas de turing.
+
+Codificações de máquina de turing
+Existem estruturas complexas que apresentam formas de codificar qualquer máquina de turing com alfabeto {0,1} em um string binário.
+Modificações que devem ser feitas na definição de máquina de turing:
+-Não deve haver estado de rejeição, as rejeições devem ser indefinições
+-O estado de aceitação deve ser diferente do inicial.
+
+Serão atribuidos números naturais não nulos a:
+-estados
+-símbolos da fita
+-movimentos
+
+Tendo que |Q| = r, os estados q1, q2, ..., qr
+-q1 será o inicial
+-q2 será aceitação
+-os outros podem ser qualquer coisa
+
+Tendo que |Simbolos da fita| = s, temos y1, y2, ..., ys
+-y1 = 0
+-y2 = 1
+-y3 = (vazio)
+-Não há restrições para os demais
+Por convenção, movimento para esquerda será 1 e para direita sera 2.
+
+Não compreendi muito bem a parte de codificação das transições, apenas transcrevendo o que está no slide temos que ela sera codificada da seguinte maneira:
+Dada uma transição (qi, yj) = (qk, yl, mv) sendo i, j, k, l, v pertencentes aos naturais.
+Essa transição será codificada por  0^i10^j10^k10^l10^v
+Essa máquina será codificada pela listagem das transições, sendo cada transição representada por Cx, o código de uma máquina com N transições pode ser representada por C1 11 C2 11 ... 11 Cn-1 11 Cn.
+Uma mesma máquina pode ter diversos códigos.
+Uma máquina universal é aquela que receba outra máquina como entrada e consegue simular a máquina recebida

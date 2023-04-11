@@ -1,0 +1,90 @@
+6)
+XA1 = QTD PETROLEO A -> GASOLINA 1
+XA2 = QTD PETROLEO A -> GASOLINA 2
+XB1 = QTD PETROLEO B -> GASOLINA 1
+XB2 = QTD PETROLEO B -> GASOLINA 2
+
+Z = (XA1 + XB1) * 8 + (XA2 + XB2) * 5 - (XA1 + XA2) * 6 - (XB1 + XB2) * 3
+
+S, A{
+
+XA1 + XA2 <= 100
+XB1 + XB2 <= 200
+
+XA1/(XA1 + XB1) >= 0,6
+XA2/(XA2 + XB2) >= 0.3
+
+Xij >= 0
+
+}
+
+
+7) 
+X1 = QTD SOLDADOS
+X2 = QTD TRENS
+
+Z = (27 - 14 - 10) * X1 + ( 21 - 9 - 1O) * X2
+
+Z = 3X1 + 2X2
+S.A{
+
+2X1 + X2 <= 100
+
+X1 + X2 <= 80
+
+X1 <= 40
+
+X1,X2 >= 0
+
+}
+
+2X1 + X2 = 100
+X2 = 0
+X1 = 50
+P1(50, 0)
+P2(0,100)
+
+X1 + X2 = 80
+P3(80,0)
+P4(0,80)
+
+X1 = 40 ->RETA
+AREA Q REPRESENTA TODOS ESSES NO GRAFICO É SOLUÇÃO
+
+cruzamento das restrições 2X1 + X2 = 100 E X1 + X2 = 80 VAI DAR O PONTO DE MAXIMA
+
+RESPOSTAS = (20,60)
+
+Z = 180
+
+
+8)
+X1 = SUCATA A
+X2 = SUCATA B
+X3 = SUCATA C
+X4 = SOBRA
+X5 = CARBONO
+X6 = SILICIO
+
+MINIMIZAR CUSTO DE PROD
+
+Z = 0,3X1 + 0,315X2 + 0,034X3 + 0,02X4 + 0,3X5 + 0,5X6
+
+S.A{
+(0.001X1 + 0.0015X2 + 0.023X3 + 0.022X4 + 1X6)/(
+4000) >= 0.0325
+
+IGUAL A DE CIMA PORÉM <= 0.034
+
+(0.0045X1 + 0.004X2 + 0.035X3 + 0.033X4 +5) / 4000 >= 0.0205
+IGUAL A DE CIMA PORÉM  <= 0.0225
+
+XI >= 0
+}
+
+
+
+
+
+
+

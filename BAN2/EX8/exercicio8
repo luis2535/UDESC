@@ -1,0 +1,154 @@
+--1)Gatilho para impedir a inserção ou atualização de Clientes com o mesmo CPF.
+create or replace function verificaCPFCliente() returns trigger as
+$$
+begin
+	if (TG_OP = 'INSERT') then
+		if (select 1 from cliente where cpf = new.cpf) then 
+			raise exception 'Esse CPF ja esta cadastrado';
+		end if;
+	elsif (TG_OP = 'UPDATE') then
+		if(select 1 from cliente where cpf = new.cpf and codc <> new.codc) then
+			raise exception 'Esse CPF ja esta cadastrado';
+		end if;
+	end if;
+	return new;			
+end;
+$$
+language plpgsql;
+
+create trigger verificaCPFCliente before insert or update on cliente
+	for each row execute procedure verificaCPFCliente();
+
+--2)Gatilho para impedir a inserção ou atualização de Mecânicos com idade menor que 20 anos.
+create or replace function verificaIdadeMec() returns trigger as
+$$
+begin
+	if(TG_OP = 'INSERT') then
+		if(new.idade < 20) then
+			raise exception 'Mecanico não pode ter menos de 20 anos';
+		end if;
+	elsif (TG_OP = 'UPDATE') then
+		if(new.idade < 20) then
+			raise exception 'Mecanico não pode ter menos de 20 anos';
+		end if;
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+create trigger verificaIdadeMec before insert or update on mecanico for each row execute procedure verificaIdadeMec();
+
+--3)Gatilho para atribuir um cods (sequencial) para um novo setor inserido.
+create or replace function atribuiCODS() returns trigger as
+$$
+declare
+	newcods int;
+begin
+	select max(cods) + 1 from setor into newcods;
+	new.cods = newcods;
+	return new;
+end;
+$$
+language plpgsql;
+
+create trigger atribuiCODS before insert on setor for each row execute procedure atribuiCODS()
+
+--4)Gatilho para impedir a inserção de um mecânico ou cliente com CPF inválido.
+create or replace function validaCPF() returns trigger as
+$$
+begin
+	if (select cpf_valido(new.cpf) = false) then
+		raise exception 'CPF invalido';
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+create trigger validaCPF before insert on cliente for each row execute procedure validaCPF();
+
+
+--5)Gatilho para impedir que um mecânico seja removido caso não exista outro mecânico com a mesma função.
+select * from mecanico
+create or replace function funcaomecanico() returns trigger as
+$$
+begin
+	if (select count(*) from mecanico where funcao = old.funcao) = 1 then
+		raise exception 'remoção impedida. apenas um mecanico na função.';
+	end if;
+	return old;
+end;
+$$
+language plpgsql;
+
+create trigger funcaomecanico before delete on mecanico for each row execute procedure funcaomecanico();
+
+--6)Gatilho que ao inserir, atualizar ou remover um mecânico, reflita as mesmas modificações na tabela de Cliente. Em caso de atualização, se o mecânico ainda não existir na tabela de Cliente, deve ser inserido.
+
+create or replace function gerenciaMecanico() returns trigger as
+$$
+declare
+	newcodc int;
+begin
+	if(TG_OP = 'INSERT') then
+	select max(codc) + 1 from cliente into newcodc;
+		insert into cliente(codc, cpf, nome, idade, endereco, cidade) values (newcodc, new.cpf, new.nome, new.idade, new.endereco, new.cidade);	
+	elsif(TG_OP = 'DELETE') then
+		delete from cliente where cpf = old.cpf and nome = old.nome;
+	elsif(TG_OP = 'UPDATE') then
+		if(select count(*) from cliente group by cpf = new.cpf) then
+			update cliente set
+				codc = new.codc,
+				nome = new.nome,
+				idade = new.idade,
+				endereco = new.endereco,
+				cidade = new.cidade
+			where cpf = new.cpf;
+		else 
+			select max(codc) + 1 from cliente into newcodc;
+			insert into cliente(codc, cpf, nome, idade, endereco, cidade) values (newcodc, new.cpf, new.nome, new.idade, new.endereco, new.cidade);
+		end if;
+	end if;
+	return new;
+	
+end;
+$$
+language plpgsql;
+create trigger gerenciaMecanico after delete or update or insert on mecanico for each row execute procedure gerenciaMecanico();
+
+--7)Gatilho para impedir que um conserto seja inserido na tabela Conserto se o mecânico já realizou mais de 20 horas extras no mês.
+create or replace function impede_horaextra() returns trigger as 
+$$
+declare
+	mes int;
+	ano int;
+begin
+	mes := date_part('month', new.data);
+	ano := date_part('year', new.data);
+	if (select horas_extra(new.codm, mes, ano) > 20) then
+		raise exception 'O mecanico ja trabalhou mais de 20 horas extras';
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+create trigger impede_horaextra before insert on conserto for each row execute procedure impede_horaextra();
+--8)Gatilho para impedir que mais de 1 conserto seja agendado no mesmo setor na mesma hora.
+
+
+create or replace function impede_conserto_setor() returns trigger as
+$$
+declare 
+	cont int default 0;
+	oldcods int default 0;
+begin
+	oldcods := (select distinct cods from conserto join mecanico using (codm) where (codm = new.codm));
+	cont := (select count(*) from conserto join mecanico using (codm) where (cods = pcods) and (data = new.data) and (hora = new.hora) group by (data, hora, cods));
+	if cont > 0 then
+		raise exception 'Conserto não agendado. Esse horário já existe um conserto no setor';
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+
+create trigger impede_conserto_setor before insert on conserto for each row execute procedure impede_conserto_setor();
