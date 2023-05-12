@@ -1,0 +1,7 @@
+Diario de bordo 2/05
+
+Aula utilizada pela professora para revisar alguns conceitos importantes para prova.
+Existem linguagens decidíveis em que, eventualmente, uma máquina de turing pode entrar em loop infinito.
+Pode haver uma máquina que é reconhecedora e decisora, pois toda máquina de turing é uma reconhecedora de sua própria linguagem. Qualquer máquina que é decisora, ela também será reconhecedora de pelo menos sua própiro linguagem.
+Toda Maquina de Turing possui uma linguagem, linguagens são palavras sobre Alfabeto* que possuem sequência de configurações a partir da configuração inicial e que encerra no estado qA.
+

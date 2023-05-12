@@ -1,0 +1,32 @@
+Diario de Bordo 11/05
+
+Encerramos cápitulo 4 mostrando que AMT = {<M, w> | w E L(M)} é indecidível.
+
+A partir de agora vamos provar indecibilidade de algumas linguagens.
+PARAmt = {<M, w> | M para ao processar w}. Ou seja, se com a entrada w a máquina M parar, ela é uma decisora.
+Vamos supor que PARAmt é decidível, ou seja, existe uma MT decisora D tal que L(D) = PARAmt.
+Então, seja a seguinte MT: H com entrada <M,w>.
+1 - Rode D(decisora) com entrada <M,w>.
+2 - Caso D rejeite, rejeite. Caso D aceite, rode M com entrada w e responda o que M responder.(Esse passo termina quando M parar). Utilizando o D, quando ele aceita eu tenho certeza que a M não irá entrar em loop, pois D ja garantiu que M irá parar. Então posso rodar M com a entrada w.
+
+Então H é decisor de AMT. O que é impossível de existir, portanto D não existe. Ou seja, PARAmt é indecidível.
+
+Se uma linguagem é indecidível então seu complemento também é indecidível.
+Prova por redução ao absurdo : Supor que L é indecidível e que seu complemento é decidível.
+
+Vmt = {<M> | L(M) = {vazio}}
+Complemento de Vmt = códigos de máquina de Turing que não estão em Vmt, ou seja, os códigos de MT que aceitam ao menos uma palavra : TUDOmt = {<M> | L(M) = E*}
+Mostrar que Vmt também é indecidível -> Não tem decisor.
+Fazemos isso supondo que existe um decisor D.
+Supondo que Vmt é decidível , ou seja, existe uma MT D que decide Vmt.
+Então seja a seguinte MT H' com entrada <M,w>.
+1. Construa a seguinte máquina de Turing X: com entrada x.
+	1 Passo: Caso x =\= 001, rejeite.
+	2 Passo: Caso x = 001 então rode M com entrada w e responda o que M responder.
+
+L(X) = {
+	{VAZIO}, se w não pertence L(M)
+	A =\= {VAZIO}(001), se w pertence L(M)
+	}
+2. Rode D com entrada <X>. Se D aceitar, rejeite. Caso D rejeitar, aceite.
+Portanto H' é uma decisora de Amt, o que é um absurdo, pois Amt é indecidível, por isso D não existe. Com isso temos que Vmt é indecidível.

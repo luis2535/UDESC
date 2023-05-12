@@ -1,0 +1,17 @@
+1.
+Growing phase (Crescimento): Uma transação pode obter bloqueios, mas não pode liberar nenhum bloqueio.
+Shrinking phase (Encolhimento): Uma transação pode liberar bloqueios, mas não pode obter nenhum bloqueio.
+
+2.
+Deadlock é quando ocorre um impasse e duas ou mais transações ficam impedidas de continuar suas execuções.
+
+3.
+Transações velhas ESPERAM as transações mais novas.
+Quanto mais NOVA for a transação, mais ela vai esperar.
+
+Transações velhas ABORTAM as transações novas.
+Quanto mais velha ficar a transação, MENOR a chance de espera.
+
+
+5.
+Não existe deadlock no grafo apresentado, uma vez que o grafo não possui ciclos.

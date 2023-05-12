@@ -1,0 +1,125 @@
+-- Trigger para não deixar registrar CPF repetido
+
+create or replace function CPFrepetido() returns trigger as
+$$
+begin
+	if(TG_OP = 'INSERT') then
+		if(select 1 from usuario where cpf = new.cpf) then
+			raise exception 'Esse CPF ja esta cadastrado';
+		end if;
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+
+create trigger CPFrepetido before insert on usuario for each row execute procedure CPFrepetido();
+insert into usuario values(10363195980, 'Luis', 'Bertelli', 'luis@gmail.com','abcde');
+select * from usuario;
+
+
+-- Trigger para não deixar reservar um horário que ja esteja ocupado
+
+create or replace function agendamento_repetido() returns trigger as
+$$
+declare
+
+begin
+	if(select count(*) from agendamento where horario_inicio < new.horario_inicio and horario_fim > new.horario_inicio and id_quadra = new.id_quadra and status = 'Ativo') then
+		raise exception 'Essa quadra ja esta reservada para esse horario';
+	elsif(select count(*) from agendamento where horario_inicio > new.horario_inicio and horario_inicio < new.horario_fim and id_quadra = new.id_quadra and status = 'Ativo' ) then
+		raise exception 'Essa quadra ja esta reservada para esse horario';
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+create trigger agendamento_repetido before insert or update on agendamento for each row execute procedure agendamento_repetido();
+
+
+INSERT INTO Agendamento  VALUES (1, '14:00', '16:00', '2023-05-10', 'Ativo', 10363195980, 1);
+INSERT INTO Agendamento  VALUES (2, '15:00', '15:30', '2023-05-10', 'Ativo', 10363195980, 1);
+INSERT INTO Agendamento  VALUES (3, '13:00', '15:00', '2023-05-10', 'Ativo', 10363195980, 1);
+INSERT INTO Agendamento  VALUES (4, '17:00', '18:00', '2023-05-10', 'Ativo', 10363195980, 1);
+select * from agendamento
+Delete from agendamento where id_agendamento = 2
+
+
+insert into bloco values(1,	'aaa', 'aaaa')
+
+insert into quadra values (1, 'A', 'a', 1)
+
+-- Função para retornar quantidade de um item no horário
+
+insert into Equipamento values (1, 'bola de futsal', '', 3)
+select * from equipamento
+
+insert into Reserva values (1, 1)
+select * from Reserva
+create or replace function qtd_material(vequipamento int, vhorario time, vdata date) returns int as
+$$
+declare
+	qtd_disponivel int;
+	qtd_utilizada int;
+begin
+	select quantidade from Equipamento where id_equipamento = vequipamento into qtd_disponivel;
+	select count(*) from Agendamento a join Reserva r using (id_agendamento) join Equipamento e using (id_equipamento) where id_equipamento = vequipamento and vhorario between horario_inicio and horario_fim and data = vdata into qtd_utilizada;
+	return (qtd_disponivel - qtd_utilizada);
+end;
+$$
+language plpgsql;
+
+select qtd_material(1, '15:00', '2023-05-10')
+select qtd_material(1, '18:00', '2023-05-10')
+
+-- Função para ver quantos agendamentos há num intervalo de tempo
+
+create or replace function qtd_agendamentos(vhorario_inicio time, vhorario_fim time, vdata date) returns int as
+$$
+declare 
+	qtd_agendamentos int;
+begin
+	select count(*) into qtd_agendamentos from agendamento where data = vdata and horario_fim > vhorario_inicio and ((horario_inicio >= vhorario_inicio and horario_inicio < vhorario_fim) or (horario_fim > vhorario_inicio and horario_fim <=vhorario_fim));
+	return qtd_agendamentos;
+	
+end;
+$$
+language plpgsql;
+
+select qtd_agendamentos('13:00', '18:00', '2023-05-10');
+-- Trigger para deixar determinado período reservado para eventos extraordinários
+
+create or replace function evento_extraordinario() returns trigger as
+$$
+declare
+    quadra RECORD;
+begin
+	update Agendamento set status = 'CANCELADO' where data = new.data and ((horario_inicio <= new.horario_inicio and horario_fim > new.horario_inicio) or (horario_inicio > new.horario_inicio and horario_inicio < new.horario_fim));
+    for quadra in select * from Quadra LOOP
+        insert into Agendamento (id_agendamento, data, horario_inicio, horario_fim, status, cpf, id_quadra) values (new.id_evento, new.data, new.horario_inicio, new.horario_fim, 'ATIVO', new.cpf, quadra.id_quadra);
+    end loop;
+    return new;
+end;
+$$
+language plpgsql;
+
+create trigger evento_extraordinario after insert on Evento for each row execute function evento_extraordinario();
+
+insert into evento values (8, '2023-05-10', '13:00', '19:00', 'Ativo', 'EVENTO TESTE', 10363195980);
+select * from agendamento
+drop trigger evento_extraordinario on evento
+
+-- Trigger para ter que possuir 4 dias de antecedencia para marcar um agendamento
+
+create or replace function agendar_antecedencia() returns trigger as
+$$
+begin
+	if new_data < current_date + 4 then
+		raise exception 'Agendamento não permitido com menos de 4 dias de antecedência';
+	end if;
+	return new;
+end;
+$$
+language plpgsql;
+
+create trigger agendar_antecedencia before insert on agendamento for each row execute function agendar_antecedencia();

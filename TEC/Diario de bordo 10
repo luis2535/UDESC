@@ -1,0 +1,19 @@
+Diário de Bordo 13/04
+
+Uma linguagem é decidível se existe uma máquina de turing que pare para toda entrada.
+Vai existir uma máquina de turing M, onde sua linguagem seja justamente L. L(M) = L.
+O fato de existir uma máquina de turing que receba essa linguagem pare não significa que todas as maquinas de turing com essa linguagem vai parar para qualquer entrada.
+
+Para provar que uma linguagem é decidível:
+É necessário existir uma máquina de turing decisora que aceite essa linguagem.
+A máquina deve aceitar a linguagem
+A máquina deve parar a cada entrada.
+Linguagens Decidiveis:
+AAFD, AAFN, AEXR, VAFD, EQAFD, AGLC, VGLC, qualquer linguagem livre de contexto.
+Para um AFD:
+-dada uma entrada o seu processamento sempre termina.
+-a máquina consegue receber o código da AFD e simular qualquer entrada.
+-Se o algoritmo decisor identificar o código(B) como AFD, simula o autômato com a entrada w e responde oq B quiser
+Para um AFN:
+-qualquer AFN pode ser convertido em um AFD
+-Basicamente a máquina verifica se é um código para AFN, se for, transforma em um AFD e envia o código junto com a entrada para o decisor de AFD.

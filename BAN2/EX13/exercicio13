@@ -1,0 +1,56 @@
+--1)      Recupere o CPF e o nome dos mecânicos que trabalham nos setores maiores que 100 e menores que 200.
+
+explain analyse select m.cpf, m.nome from mecanico m join setor s on m.cods = s.cods where s.cods between 100 and 200
+create index idx_mecanico_setor on mecanico using btree (cods)
+drop index idx_mecanico_setor
+--2)      Recupere o CPF e nome dos mecânicos que atenderam no dia 13/06/2018.
+select * from conserto
+
+explain analyse select m.nome, m.cpf from mecanico m, conserto c where m.codm = c.codm and c.data = '13/06/2018'
+create index idx_conserto_data on conserto using btree(data)
+drop index idx_conserto_data
+--3)      Recupere o nome do mecânico, o nome do cliente e a hora do conserto para os consertos realizados de 12/06/2018 à 25/09/2018.
+
+explain analyse select m.nome, c.nome, c1.hora from mecanico m, cliente c, conserto c1, veiculo v where m.codm = c1.codm and c1.codv = v.codv and v.codc = c.codc and c1.data between '12/06/2018' and '25/09/2018'
+create index idx_conserto_data on conserto using btree(data);
+create index idx_mec_nome on mecanico using btree(nome);
+create index idx_cliente_nome on cliente using btree(nome);
+drop index idx_conserto_data;
+drop index idx_mec_nome;
+drop index idx_cliente_nome;
+--4)      Recupere o nome e a função de todos os mecânicos, e o número e o nome dos setores para os mecânicos que tenham essa informação.
+
+explain analyse select m.nome, m.funcao, s.cods, s.nome from mecanico m left join setor s using(cods)
+
+--5)      Recupere o nome de todos os mecânicos, e as datas dos consertos para os mecânicos que têm consertos feitos (deve aparecer apenas um registro de nome de mecânico para cada data de conserto).
+
+explain analyse select m.nome, c.data from mecanico m, conserto c where m.codm = c.codm
+
+--6)      Recupere a média da quilometragem de todos os veículos dos clientes.
+
+explain analyse select avg(quilometragem) from veiculo
+--7)      Recupere a soma da quilometragem dos veículos de cada cidade onde residem seus proprietários.
+explain analyse select c.cidade, sum(v.quilometragem) from cliente c, veiculo v where c.codc = v.codc group by c.cidade
+create index idx_cliente_cidade on cliente using btree(cidade);
+create index idx_veiculo_quilometragem on veiculo using btree(quilometragem);
+drop index idx_cliente_cidade;
+drop index idx_veiculo_quilometragem;
+--8)      Recupere a quantidade de consertos feitos por cada mecânico durante o período de 12/06/2018 até 19/010/2018
+
+explain analyse select codm, count(data) from conserto  where data between '12/06/2018' and '19/10/2018' group by codm
+create index idx_conserto_data on conserto using btree(data);
+drop index idx_conserto_data;
+--9)   Recupere a quantidade de consertos feitos agrupada pela marca do veículo.
+
+
+select v.marca, count(data) from veiculo v, conserto c where v.codv = c.codv group by v.marca
+
+--10)   Recupere o modelo, a marca e o ano dos veículos que têm quilometragem maior que a média de quilometragem de todos os veículos.
+
+select * from veiculo
+explain analyse select modelo, marca, ano from veiculo where quilometragem > (select avg(quilometragem) from veiculo)
+
+--11)   Recupere o nome dos mecânicos que têm mais de um conserto marcado para o mesmo dia.
+
+select m.nome from mecanico m, conserto c where m.codm = c.codm group by(m.codm, c.data) having count(c.data) > 1
+

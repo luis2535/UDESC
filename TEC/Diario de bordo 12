@@ -1,0 +1,6 @@
+Diário de Bordo 20/04
+
+Nessa aula ao ar livre foi tratada sobre tamanhos de infinitos, e se existem infinitos maiores uns que os outros, nessa aula foi provado que se entre 2 conjuntos existe uma função bijetora, então o tamanho desses conjuntos é o mesmo, isso vale para por exemplo o conjunto dos naturais em relação aos inteiros, apesar dos reais possuírem números negativos além de todos os positivos que os naturais apresentam, e sendo duplamente infinito, conseguimos definir uma função bijetora que conecta todos esses números.
+Foi mostrado que os conjuntos PARES e Naturais tem o mesmo tamanho, Naturais e inteiros, Naturais e Racionais.
+Porém quando tratamos de números reais, temos que ao escrevermos todos os valores entre 0 e 1, com todas as casas decimais, e substituirmos o digito na diagonal principal de cada um deles por um outro digito que não o mesmo, chegaremos a um valor presente na diagonal principal que não está escrito no conjunto de valores entre 0 e 1.
+Esse valor não estar presente na lista exaustiva faz com que a função não seja bijetora, fazendo com que o infinito dos números reais seja maior que o infinito dos números reais.

@@ -1,0 +1,17 @@
+Diário de Bordo 18/04
+
+Acabei não conseguindo comparecer na aula do dia 18/04, mas me foi passado que a professora terminou de falar a parte das linguagens decidíveis, segue então um pequeno resumo sobre esses temas.
+AEXR:
+Existem algoritmos que dada a expressão regular, nós conseguimos a AFN que reconhece a linguagem gerada por ela. Esse algoritmo passa por autômatos finitos com movimentos vazios(AFE), construida pela estrutura da expressão regular, que é convertida em AFN. Essa tradução é baseada nos fechos dos movimentos vazios de cada estado. A decisora para essa linguagem verifica se o código é uma expressão regular, se sim, faz a conversão para AFN e passa para o decisor AAFN
+
+VAFD:
+Se não há caminho do estado inicial para o final, o AFD não aceita a palavra, o decisor verifica se é um código de AFD, se for, coloca o estado inicial em um conjunto de estados marcados. Funções programas são adicionadas via analises e a cada iteração pode aumentar a cardinalidade ou permanecer inalterado. Se não houver nenhum estado final que pertence a F união S, o decisor aceita, caso contrário, rejeita.
+
+EQAFD
+Dados os conjuntos X e Y, temos que a diferença simétrica é vazia se, e somente se, X = Y. Linguagens regulares são fechadas para operações de complemento e união. O decisor constrói AFD que aceita L(A) e L(B) e manda para o decisor de VAFD, se for positivo a resposta ele aceita.
+
+AGLC:
+Toda GLC pode ser convertida para gramática para forma normal de Chomsky. Uma palavra de tamanho N pode ser ser derivada somente em 2n - 1. O decisor converte a gramatica recebida para GLC na FNC e em seguida testa todasesta todas as possíveis derivações com 2N − 1 passos. Se encontrar w , aceita. Caso contrário, rejeita.
+
+VGLC:
+Semelhante ao decisor VAFD, porém trabalha dos símbolos terminais para a variável inicial. Utiliza conjunto de símbolos marcados, inicialmente somente com os simbolos terminais. A cada ciclo ele procura símbolos que geram palavras compostas somentes por símbolos ja marcados e os marca também. Quando não aumenta mais o conjunto de símbolos marcados, se verifica se o símbolo inicial está marcado, se estiver rejeita, se não, aceita.

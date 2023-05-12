@@ -1,0 +1,11 @@
+Diário de bordo 27/04
+
+Nesta aula, foi apresentado o teorema de que existe um problema específico que é algoritmicamente insolúvel na teoria da computação. O teorema demonstra que os computadores são limitados de forma fundamental e que até mesmo problemas comuns que as pessoas desejam resolver podem ser insolúveis. Um exemplo é o problema geral de verificação de software, que não é solúvel por computador. A seção apresenta o problema da parada, que é o problema de testar se uma máquina de Turing aceita uma dada cadeia de entrada. Este problema é indecidível e é um exemplo de um problema computacionalmente insolúvel. É mostrado que o problema da parada é Turing-reconhecível, mas não é Turing-decidível. A máquina de Turing usada para reconhecer o problema da parada é uma máquina de Turing universal, que é capaz de simular qualquer outra máquina de Turing a partir da descrição daquela máquina.
+Seja Amt = {<M,w>| M é uma MT e M aceita w}.
+Teorema:
+Amt é indecidı́vel.
+Antes de chegar na prova, vamos primeiro observar que Amt é Turing-reconhecı́vel. Por conseguinte o Teorema mostra que reconhecedores são mais poderosos que decisores. Exigir de uma MT que páre sobre todas as entradas restringe os tipos de linguagens que ela pode reconhecer. A seguinte máquina de Turing reconhece Amt. 
+U = “Sobre a entrada <M,w>, onde M é uma MT e w é uma cadeia:
+1. Simule <M,w>, 
+2. Se M alguma vez entra no seu estado de aceitação, aceite; se M entra no seu estado de rejeição, rejeite.”
+Note que essa máquina entra em loop sobre a entrada <M,w> se M entra em loop sobre w, e é por isso que essa máquina não decide Amt. Se o algoritmo tivesse alguma maneira de determinar que M não estava parando sobre w, ele poderia rejeitar. Portanto Amt é às vezes chamado o problema da parada. Como demonstramos, um algoritmo não tem forma de fazer essa determinação.
