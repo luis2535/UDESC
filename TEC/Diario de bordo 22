@@ -1,0 +1,47 @@
+Diário de bordo dia 01/06
+
+Algumas revisões sobre o conteúdo.
+Se A<mB e B é decidível(reconhecível), então A é decidível(reconhecível).
+Se A<mB e A é indecidível(não é reconhecível), então B é indecidível(não é reconhecível).
+
+AMT não é reconhecível 	-> AMT é indecidível.
+			-> AMT é reconhecível.
+A<mB existe função computável tal que w pertence a A <=> f(w) pertence a B.
+p<->q --- ~p<->~q
+w não pertence a A <=> f(w) não pertence a B
+W pertence a complemento de A <=> f(w) não pertence ao complemento de B.
+A complemento < mB complemento
+
+EQmt = {<M1,M2>}
+L(M1) = L(M2)
+
+Complemento de EQMT = {<M1,M2>}
+L(M1) =/= L(M2)
+
+Complemento de AMT <m EQmt
+AMT <m Complemento de EQmt	
+
+F = com entrada <M,w>
+1) Construa a MT X
+2) Construa a MT T
+y = com entrada y
+	I) Rode M com entrada w e responda o que M responder.
+3) Retorne <x, y>
+
+Complemento de AMT <m Complemento de EQmt
+AMT <m EQmt
+
+G = Com entrada <M,w>
+1) Construa a MT Q
+2) Construa a MT y
+y = Com entrada y
+I) Rode M com entrada w e responda o que M responder
+3) Retorne <Q,y>
+
+A <mB
+A dec
+prova para AMT <m TUDOmt
+J = com entrada <M,w> Construa a MT' y
+y = Com entrada y
+I) Rode M com entrada w e responda o que M responder
+2) Retorne <y>

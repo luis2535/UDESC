@@ -1,0 +1,32 @@
+Diario de bordo dia 25/05
+
+Realização de atividade em aula.
+
+Diario de bordo dia 30/05
+
+Redução por mapeamento:
+
+Função computável:
+Caso exista máquina de turing que compute uma função ->  Dada entrada w a máquina M executa, para, e o conteúdo da fita é exatamente f(w).
+A<Bm -> A reduz por mapemaneto a B.
+A,B estão contidos na mesma linguagem.
+
+- A<Bm sse existe função computavel f tal que w pertence a A <=> f(w) pertence a B
+- se w não pertence a A <=> f(w) não pertence a B.
+
+Sejam A, B contidos na linguagem tais que A<mB. Se B for decidível, então A também é decidível.
+Como A < mB, existe máquina de Turing F que computa a função de redução. COmo B é decidível, existe decisor D tal que L(D) = B. Seja a MT a seguir:
+	X = Com entrada w:
+	1 - Rode F com entrada w produzindo f(w) na fita.
+	2 - Rode D com entrada f(w) e responda o que D responder.
+	
+Então existe X decide A, logo A é decidivel
+A,B esta contido na Linguagem
+A<mB
+A é indecidível.
+B não pode ser decidível, pois temos que se B for decidível A será decidível, o que iria gerar uma contradição, portanto B é indecidível.
+Se B for reconhecível, então A também é reconhecível, segue o mesmo princípio que para decibilidade.
+Se A não é computável então B não é computável.
+
+AMT é reconhecível  e indecidível, portanto tempos que ela não é co-reconhecível, pois se fosse AMT seria decidível, portanto o complemento de AMT não é reconhecível.
+EQMT não é reconhecível nem co-reconhecível

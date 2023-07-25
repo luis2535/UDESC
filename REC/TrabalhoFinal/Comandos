@@ -1,0 +1,155 @@
+Cenário 1:
+
+Rodar tudo sem usar o NETEM para alterar a latência
+
+Cenário 2:
+
+Rodar o comando ifconfig e identificar a interface de rede e apartir dai rodar os comandos de teste.
+
+sudo tc qdisc add dev <interface> root netem delay 75ms
+
+mudar apenas interface
+
+para voltar ao normal
+
+sudo tc qdisc del dev <interface> root
+
+
+Cenário 3:
+
+sudo tc qdisc add dev <interface> root netem delay 200ms
+
+mudar apenas interface
+
+para voltar ao normal
+
+sudo tc qdisc del dev <interface> root
+
+
+
+
+
+lado cliente:
+
+rodar cada vez um desses por 1 minuto e captar os dados
+
+antes de rodar o cliente, executar o sh getCWND.sh
+
+ao termino(1 minuto)
+finalizar sh e modificar o nome do relatorio.txt gerado
+
+a cada novo cenário, fechar todos os servidores e clientes e iniciar novamente.
+
+iperf -c <ip> -i 1 -p <porta-destino> -u -b 100M & 
+	-> essa linha é para a conexão UDP
+
+iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -b 100M >clienteReno.txt
+relatorioReno1.txt
+relatorioReno1lat75.txt
+relatorioReno1lat200.txt
+
+iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -P 5 -b 100M>clienteReno5.txt
+relatorioReno5.txt
+relatorioReno5lat75.txt
+relatorioReno5lat200.txt
+
+iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -P 10 -b 100M>clienteReno10.txt
+relatorioReno10.txt
+relatorioReno10lat75.txt
+relatorioReno10lat200.txt
+
+iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -b 100M>clienteCubic.txt
+relatorioCubic1.txt
+relatorioCubic1lat75.txt
+relatorioCubic1lat200.txt
+
+iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -P 5 -b 100M>clienteCubic5.txt
+relatorioCubic5.txt
+relatorioCubic5lat75.txt
+relatorioCubic5lat200.txt
+
+iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -P 10 -b 100M>clienteCubic10.txt
+relatorioCubic10.txt
+relatorioCubic10lat75.txt
+relatorioCubic10lat200.txt
+
+lado servidor:
+
+Rodar Server UDP de background
+
+iperf -s -u &
+iperf -s -p 5002 -Z reno
+
+iperf -s -u &
+iperf -s -p 5003 -Z cubic
+
+
+
+
+Ordem de testes:
+s = terminal do servidor
+c = terminal do cliente
+t = terceiro terminal
+
+Latência 0:
+s:	iperf -s -u &
+c:	iperf -c <ip> -i 1 -p <porta-destino> -u -b 100M &
+s:	iperf -s -p 5002 -Z reno
+t:	sh getCWND 5002 relatorioReno1.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -b 100M >clienteReno.txt
+t:	finaliza o sh
+t:	sh getCWND 5002 relatorioReno5.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -P 5 -b 100M>clienteReno5.txt
+t:	sh getCWND 5002 relatorioReno10.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -P 10 -b 100M>clienteReno10.txt
+t:	finaliza o sh
+s:	finaliza o servidor RENO
+s:	iperf -s -p 5003 -Z cubic
+t:	sh getCWND 5003 relatorioCubic1.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -b 100M >clienteCubic.txt
+t:	finaliza o sh
+t:	sh getCWND 5003 relatorioCubic5.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -P 5 -b 100M >clienteCubic5.txt
+t:	finaliza o sh
+t:	sh getCWND 5003 relatorioCubic10.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -P 10 -b 100M >clienteCubic10.txt
+t:	finaliza o sh
+s:	finaliza servidor UDP e TCP
+
+
+
+Latência 200ms:
+s:	sudo apt-get install iproute2 (para instalar o pacote para permitir o uso do netem)
+
+s:	sudo tc qdisc add dev <interface> root netem delay 200ms
+s:	iperf -s -u &
+c:	iperf -c <ip> -i 1 -p <porta-destino> -u -b 100M &
+s:	iperf -s -p 5002 -Z reno
+t:	sh getCWND 5002 relatorioReno1lat200.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -b 100M >clienteRenolat200.txt
+t:	finaliza o sh
+t:	sh getCWND 5002 relatorioReno5lat200.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -P 5 -b 100M>clienteReno5lat200.txt
+t:	sh getCWND 5002 relatorioReno10lat200.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z reno -P 10 -b 100M>clienteReno10lat200.txt
+t:	finaliza o sh
+s:	finaliza o servidor RENO
+s:	iperf -s -p 5003 -Z cubic
+t:	sh getCWND 5003 relatorioCubic1lat200.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -b 100M >clienteCubiclat200.txt
+t:	finaliza o sh
+t:	sh getCWND 5003 relatorioCubic5lat200.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -P 5 -b 100M >clienteCubic5lat200.txt
+t:	finaliza o sh
+t:	sh getCWND 5003 relatorioCubic10lat200.txt
+c:	iperf -c <ip> -t 60 -i 1 -p <porta-destino> -Z cubic -P 10 -b 100M >clienteCubic10lat200.txt
+t:	finaliza o sh
+s:	finaliza servidor UDP e TCP
+
+
+
+
+iperf -s -p 5002 -Z reno
+
+
+

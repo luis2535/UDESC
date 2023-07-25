@@ -1,0 +1,53 @@
+Diário de bordo 15/06
+
+Complexidade de tempo
+Complexidade tem tempo tem relação com o número de passos que que a máquina de Turing da.
+Analisar a complexidade de problemas indecidiveis para pior caso não faz sentido, não há analise para isso.(Pior caso é loop infinito).
+Estamos interessados em analise de problemas decidíveis.
+
+M1 = Sobre a entrada w:
+1 - Faça uma varredura na fita e rejeite se for encontrado algum 0 à direita de algum 1.
+2 - Repita se existem ambos, 0s e 1s na fita:
+3 - Faça uma varredura na fita, cortando um único 0 e um único 1.
+4 - Se ainda permanecerem 0s após os 1s tiverem sido cortados ou se ainda permanecerem 1s após todos os 0s tiverem sido cortados, rejeite. Caso contrário, se não houver 0s nem 1s sobrea a fita, aceite.
+
+
+M2 = Sobre a entrada 2:
+1 - Faça uma varredura na fita e rejeite se for encontrado algum 0 à direita de algum 1
+2 - Repita se existem ambos, 0s e 1s na fita:
+3 - Faça uma varredura na fita, verificando se o número total de 0s e 1s remanecentes é par ou ímpar. Se for ímpar, rejeite.
+4 - Faça uma varredura novamente na fita, cortando alteranadamente um 0, e, então cortando alternadamente um 1 sim e outro não começando com o primeiro 1.
+5 - Se nenhum 0 e nenhum 1 permancerem na fita, aceite. Caso contrário, rejeite.
+
+M3 = Sobre a entrada w:
+1 - Faça uma varredura na fita e rejeite se for encontrado algum 0 à direita de algum 1.
+2 - Faça uma varredura nos 0s sobre a fita 1 até o primeiro 1. Ao mesmo tempo, copie os 0s para a fita 2.
+3 - Faça uma varredura nos 1s sobre a fita 1 até o final da entrada. Para cada 1 lido sobre a fita 1, corte um 0 sobre a fita 2. Se todos os 0s estiverem cortados antes que todos os 1s sejam lidos, rejeite.
+4 - Se todos os 0s tiverem sido cortados, aceite. Se restar algum 0, rejeite.
+
+Definição( Tempo de Execução )
+Seja M uma máquina de Turing determinística que para sobre todas as entradas. O tempo de execução ou complexidade de tempo de M é a função f: N -> N, onde f(n) é o número máximo de passos que M usa sobre as entradas de comprimento n.
+
+Se f(n) for o tempo de execução de M, dizemos que:
+- M roda em tempo f(n)
+- M é uma máquina de Turing de tempo f(n)
+
+Definição(Notação O)
+
+Sejam f e g funções f, g : N -> R+. Dizemos que f(n) = O(g(n)) se existem inteiros positivos c e n0 tais que para todo inteiro n > n0
+f(n) <= cg(n)
+Quando f(n) - O(g(n)) dizemos que g(n) é um limitante superior assintótico para f(n).
+Intuitivamente: f é menor ou igual a g se desconsideradas as diferenças até um fator constante
+
+Definição ( Classe de Complexidade de Tempo)
+
+Seja t: N ->R+ uma função. A classe de complexidade de tempo TIME(t(n)) é uma coleção de todas as linguagens que são decidíveis por uma máquina de Turing de tempo O(t(n))
+
+Máquina Determinística versus Máquina Multifita
+Teorema
+Seja t(n) uma função onde t(n) >= n. Então todas as máquina de turgin multifita de tempo t(n) tem uma máquina de Turing multifita determinística de uma única fita equivalente de tempo O(t²(n))
+Ideia geral: Simulação da multifita em uma única fita executará t(n) passos da multifita onde cada passo na simulação terá um tempo  O(t(n))
+
+Máquina Determinística versus Máquina não determinística
+Teorema: Seja t(n) uma função onde t(n) >= n. Então para todas máquina de Turing não-determinística de tempo t(n) existe uma máquina de Turing determinística de uma única fita equivalente de tempo 2^O(t(n))
+Ideia geral: simulação da não-deterministica em uma única fita executará a visita em O(b^t(n)) folhas da árvore de computação onde cada passo na simulação terá tempo O(t(n). (b é o número máximo de escolhas na função programa da máquina não-determinística)

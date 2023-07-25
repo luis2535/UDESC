@@ -1,0 +1,38 @@
+Diário de Bordo 18/05
+
+Histórias de computação.
+Conceitos necessários:
+1- Uma maquina de turing formada por uma 7-tupla M = <Q,alfabeto de entrada, alfabeto da fita, função de transição, q0, qA, qR> e uma palavra w pertencente a um conjunto do alfabeto de entrada segue uma mudança de configurações no formato:
+q0w -transição-> C1 -transição-> C2 -transição-> C3 -...-> Cn
+Até o momento que para, podendo essa parada ser por:
+	- Aceitação: Configuração com qA
+	- Rejeição: COnfiguração com qR.(indefinição incluida)
+2 - Máquina de Turing com fita limitada(é como se fosse uma mt munida de uma tesoura???)
+Ela recebe uma entrada, posiciona ela na fita e quando termina o último símbolo ela 'corta' a fita. Limitando a capacidade de computação da máquina.
+O espaço da fita de trabalho é igual ao tamanho da entrada.
+Amtfl = {<Ml, w>| w pertence a L(Ml)} é decidível
+Configuração:
+	*conteúdo da fita(até início dos infinitos brancos)
+	*localização do cabeçote -> n possíveis localizações
+	*estado atual da máquina -> k possíveis estados
+MTFL <Ml, w>	|Ql| = k
+Temos que Ml irá operar com |w| células
+nj^nk ->número total de configurações diferentes possíveis em Ml com entrada w.
+
+Vmtfl = {<Ml> | L(Ml) = Vazio} é indecidivel
+
+-> Esquema da prova: Supor que existe decisor D de Vmtfl e utiliza-lo para a contrução de um decisor de Amt.
+<M,w>
+História de computação é uma sequência finita de configurações.
+C0 = q0w
+Ci é obtido pela aplicação de uma transição em Ci-1
+Cn é configuração de parada(ou seja possui qA ou qR)
+
+w é aceito por M sse existe uma história de ACEITAÇÃO a partir de q0W usando função de transição.
+q0w#C1#C2#...#CA
+
+uqav ->&(q,a) = (b,r,D) -> ubrv
+uxqav-> &(q,a) = (b,r,E) -> urxbv
+
+Construo uma máquina de Turing de fita limitada usando uma máquina M e w com uma string de entrada(string composta por configurações), w será aceita ou rejeitada, se a string for for história de aceitação de w por M aceita, caso contrário rejeita.
+Caso ele aceite, isso será um absurdo, pois a linguagem da máquina é vazia e não pode aceitar nada, por isso a linguagem é indecidível.

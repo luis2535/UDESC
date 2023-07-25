@@ -1,0 +1,47 @@
+Diario de Bordo 23/05
+
+Problema da Correspondência de Post
+
+É como montar quebra cabeças, as peças podem se repetir quantas vezes forem necessárias incluindo zero vezes.
+Para o conjunto de peças:
+[b/ca] [a/ab] [ca/a] [abc/c]
+
+temos
+[a/ab] [b/ca] [ca/a] [a/ab] [abc/c]
+podemos perceber que a sequencia em cima é abcaabc igual a sequência embaixo.
+Nem todo conjunto da para fazer correspondência.
+Se conseguirmos um algoritmo que dado um conjunto de peças ele responda de tem correspondência então provamos que o problema é decidível.
+Esse problema da correspondência é indecidível, para provar que ele é indecidível devemos supor uma decidibilidade para ele.
+
+Para isso vamos transformar AMT em peças de domino(????)
+- Dados <M,w> queremos construir um conjunto de peças que terá correspondência se, e somente se, exista história de aceitação de w por M.
+- A correspondência será justamente essa história.
+ 
+Dados M e w vamos construir as peças.
+1°Peça [#/#qow#]
+ 
+tipo 2 -> Movimentos à direita.
+Para cada def de função programa onde o movimento é p/direita, teremos a seguinte peça:
+&(q,x) = (r,y,D) 
+[qx/yr]
+ 
+tipo 3 -> Movimentos à esquerda.
+Para cada definição de & onde o movimento para a esquerda serão produzidas tantas peças quanto o número de símbolos do alfabeto de entrada.
+&(q,x) = (r,y,E)
+Para cada Y pertencendo ao alfabeto de entrada.
+haverá a peça
+[Yqx/rYy]
+
+tipo 4 -> Restante da fita na configuração.
+Para cada Y pertencente ao alfabeto de entrada haverá a peça [Y/Y]. 
+
+tipo 5 -> Fecha configuração.
+Adicionar as peças
+[#/#][#/|_|#]
+
+tipo 6 -> Fechamento em aceitação
+Para Y pertencente ao alfabeto de entrada, acrescentar
+[YqA/qA] [qAY/qA]
+
+tipo 7 -> Peça final
+[qA##/#]

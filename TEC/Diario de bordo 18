@@ -1,0 +1,26 @@
+Diário de bordo 16/05
+
+REGULARmt = {<M>| L(M) é uma linguagem regular}
+
+A linguagem vazia é uma linguagem regular, portanto as maquinas de turing cuja linguagem seja linguagem vazia são REGULARmt. Vmt está contido em REGULARmt.
+Uma linguagem indecidível estar contida em outra linguagem não faz a outra linguagem ser indecidível, não há transferência de indecibilidade.
+
+Vamos supor que REGULARmt é decídivel, ou seja, existe decisora D tal que L(D) = REGULARmt. Seja a seguinte maquina de turing C recebendo como entrada <M,w>.
+1 - Construa a seguinte MT X com entrada x
+L(X) ={
+	Alfabeto*, w pertence a L(M),
+	{0^N1^N}, w não pertence a L(M)
+}
+Verifique se x = 0^n1^n caso positivo , aceite.
+Caso x =/= 0^n1^n rode M com entrada w e responda o que M responder.
+2 - Rode D com entrada <X> e responda o que D responder.
+Com essas definições C é um decisor de Amt, o que é absurdo. Portanto D não existe, ou seja, REGULARmt é indecidível.
+
+EQmt = {<M1, M2>| L(M1) = L(M2)}
+Vamos supor que EQmt é decidível, ou seja, existe uma máquina de Turing decisora G tal que L(G) = EQmt.
+Seja a seguinte máquina de Turing F com entrada <M>.
+1 - Obtenha o código da máquina de Turing Z(estado inicial é o estado de rejeição e possui um estado de aceitação)
+2 - Rode G com entrada <Z, M> e responda o que G responder.
+Como L(Z) = VAZIO, F decide Vmt, o que é absurdo, pois Vmt é indecidível. Logo G não existe e EQmt é indecidível.
+
+provar que TODASmt = {<M> | L(M) = Alfabeto*}

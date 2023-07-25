@@ -1,0 +1,41 @@
+Diário de Bordo 13/06
+
+Aula para resolução dos exercicios passados como entrega.
+
+Algumas correções:
+1)[x/xx][x/xx][x/y][xyxy/xy]
+
+2)X<mY caso exista função computável f tal que w pertence a X <=> f(w) pertence a Y
+Tendo-se A<mB e B<mC. Como A<mB, temos uma função computável g tal que w pertence a A <=> g(w) pertence a B.
+Como B<mC, temos uma função computável h tal que w pertence a B <=> h(w) pertence a C
+
+Então temos uma função hog e hog(w) = h(g(w)). Então h(g(w)) pertence a C <=> g(w) pertence a B <=> w pertence a A. Ou seja w pertence a A <=> hog(w) pertence a C.
+hog é computável pois: Como g é computável, temos uma MT G tal que ao inserir w na entrada, processa, para e contém apenas g(w) na fita.
+Como h é computável, temos uma MT H tal que ao inserir w' na entrada processada para contendo apenas h(w') na fita.7Então temos a MT a seguir
+M = Com entrada w.
+1- Rode G com entrada w.(G vai parar e termos g(w) na fita)
+2- Rode H com o conteúdo atual da fita.
+Então M para com hog(w) na fita.
+
+3) L é reconhecível
+I = Lcomplemento
+L<mI
+ComoL<mI então temos I<mI, ou seja I<mL.
+Como L é reconhecível, temos que I também é reconhecível. Ou seja L é co-reconhecível. Logo L é decidível.
+
+4) Não, é possível reduzir uma não regular a uma regular.
+{0^n1^n} não é regular
+{0110} é regular
+M com entrada w.
+1- Verifique se w é da forma 0^n1^n. Se for retorne 0110. Caso seja, retorne 1.
+Então {0^n1^n} <m {0110}
+
+5) Supondo Amt <m Vmt.
+Então complemento Amt <m complemento Vmt
+Amt é indecidível e reconhecível
+Seu complemento é indecidível e não reconhećivel
+
+Vmt é indecidivel e não reconhecível
+Seu complemento é indecidível e seu reconhecível
+
+Como Complemento Amt <m Complemento Vmt, por transitividade Complemento de Amt deve ser reconhecível, o que é um absurdo.

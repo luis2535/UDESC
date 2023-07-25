@@ -1,0 +1,34 @@
+Diário de bordo 20/06
+
+Na última aula definimos TIME (t(n)), uma função t: N ->R+
+Por definição são todas as linguagens DECIDÍVEIS por alguma MTD de tempo O(t(n))
+
+A classe P é a classe dos problemas decidíveis por uma MTD de tempo O(n^k) para algum k pertencente aos Naturais
+
+Definição(Verificador)
+Um verificador para uma linguagem A é um algoritmo V onde A = {w| V aceita <w,c> para uma string c}
+-a String c é chamada de certificado(ou prova) de pertinência à A
+-O tempo do verificador é medido apenas em termos do compriment de w
+-Verificador em tempo polinomial: se executa em tempo polinomial sobre o tamanho de w
+-A linguagem A é verificável em tempo polinomial se existe pelo menos um verificador em tempo polinomial para ela.
+Definição(Classe NP)
+NP é a classe de linguagens que possuem verificadores em tempo polinomial
+Teorema
+A pertence a NP se e somente se A é decidida por uma MTND de tempo polinomial
+PROVA =>
+Seja V um verificador em tempo polinomial de A. Assuma que V é uma Máquina de Turing que execute em tempo n^k. Então temos a MTND N como abaixo:
+N sobre a entrada w de tamanho n
+1 - Selecione de modo não deterministico strings c de comprimento até n^k
+2 - Execute V com netrada <w,c>
+3 - Se V aceitar, aceite. Caso contrário, rejeite.
+Assim como temos a função TIME para P, temos NTIME para NP.
+Então com isso temos que P é a classe das linguagens que podem ser decididas "rapidamente" e NP a classe das linguagens que podem ser verificadas "rapidamente"
+NP-Completude são os problemas NP cuja complexidade individual está relacionada àquela da classe inteira.
+UMa função em tempo polinomial é uma função computável em tempo polinomial.
+Uma redução em tempo polinomial é qunado uma linguagem A é redutível por mapemaneto em tempo polinomial à linguagem n .
+Uma linguagem é NP-Completo quando:
+-B pertence a NP e
+-Todo A pertencendo a NP é redutível em tempo polinomial à B
+Se B pertence a NP-completo e B pertence a B pertence a P então P = NP
+Se B pertence a NP-Completo , B<pC e C pertence a NP então C pertence a NP-Completo.
+

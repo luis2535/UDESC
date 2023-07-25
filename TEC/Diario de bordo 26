@@ -1,0 +1,22 @@
+Diario de bordo 27/06
+
+NP-Completo 
+
+C pertence a NP-Completo
+-C pertence a NP
+-Para todo A pertencente a NP (A<=p C)
+
+SAT = {<p> | p é fórmula da logica proposicional e é satisfazível}
+SAT pertence NP-Completo
+A pertence a NP - > Existe MTND decisora para A, que executa em tempo polinomial.
+Se C pertence a NP-Completo, B pertence a NP e C<=p B então C pertence a NP-Completo.
+Se C pertence a NP-Completo e C pertence a P, então P=NP
+
+se A pertence a coNP <=> Complemento de A pertence a NP
+se A não pertence a coNP <=> Complemento de A não pertence a NP
+
+A pertence a NP -> w -> Pertence a A -> Existe c  <w,c> pertence a L(V)
+		     -> Não pertence a A -> todo C <w,c> não pertence a L(V)
+		     
+
+Se coNP for igual a NP, então NP é fechado para complemento, se não, P = NP
