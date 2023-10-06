@@ -1,0 +1,7 @@
+gem 'devise'
+
+rails generate devise User
+
+devise_for :users
+
+rails db:migrate

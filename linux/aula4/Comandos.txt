@@ -1,0 +1,6 @@
+Lista de Comandos da aula 103.4
+
+
+
+wc /dev/null ->Escritas descartadas/Leituras Vazias
+wc /dev/zero ->Leitura = seq. indefinida de zeros/escritas descartadas

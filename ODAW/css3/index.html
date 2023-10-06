@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Filmes e</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Filmes/<br>Séries</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="#filmes" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Filmes</a> 
+    <a href="#series" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Séries</a>  
+    <a href="#formulario" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Formulario</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Filmes/Séries</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Filmes e Séries</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Resenhas de filmes e séries.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <section>
+      <p>Neste website escolhemos algumas séries e filmes para trazer sua sinopse, trailer e algumas informações técnicas</p>
+    </section>
+  </div>
+  
+
+
+  <!-- Filmes -->
+  <div class="w3-container" id="filmes" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Filmes.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <section class="filme1"> 
+
+      <h3><strong>1 - Cães de Aluguel</strong></h3>
+      <p>
+          Criminoso reúne seis bandidos para um grande roubo de diamantes. Algo sai errado e um deles é ferido durante o roubo. Agora, eles precisam descobrir quem os traiu, o que gera uma enorme tensão no grupo e enfraquece a todos.
+      </p>
+      
+      <div class="midia">
+        <img class="midia-item" src="midias/caesdealuguel.jpg" alt="Cães de Aluguel">
+        <video class="midia-item" controls>
+            <source src="midias/Cães de Aluguel (1992) - Trailer legendado.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </div>
+    
+
+  <h2>Ficha Técnica</h2>
+  <ul>
+      <li>Diretor: Quentin Tarantino</li>
+      <li>Lançamento: 1993</li>
+      <li>Duração: 1h 39min</li>
+      <li>Título original:Reservoir Dogs</li>
+  </ul>
+  <table>
+      <tr>
+          <th>Personagem</th>
+          <th>Ator</th>
+      </tr>
+      <tr>
+          <td>Mr. White</td>
+          <td>Harvey Keitel</td>
+      </tr>
+      <tr>
+          <td>Mr. Orange</td>
+          <td>Tim Roth</td>
+      </tr>
+      <tr>
+          <td>Mr. Blonde</td>
+          <td>Michael Madsen</td>
+      </tr>
+      <tr>
+          <td>Mr. Pink</td>
+          <td>Steve Buscemi</td>
+      </tr>
+      <tr>
+          <td>Mr. Blue</td>
+          <td>Edward Bunker</td>
+      </tr>
+      <tr>
+          <td>Mr. Brown</td>
+          <td>Quentin Tarantino</td>
+      </tr>
+  </table>
+  <br>
+  <a href="https://www.imdb.com/title/tt0105236/">Link para página do IMDB</a>
+</section>    
+
+<section class="filme2">
+
+<h3><strong>2 - Ilha do Medo</strong></h3>
+<p> 
+  Nos anos 1950, a fuga de uma assassina leva o detetive Teddy Daniels
+  e seu parceiro a investigarem o seu desaparecimento de um quarto trancado
+  em um hospital psiquiátrico. Lá, uma rebelião se inicia e o agente terá
+  que enfrentar seus próprios medos.
+</p>
+
+
+<div class="midia">
+  <img class="midia-item" src="midias/ilhadomedo.jpg" alt="Ilha do medo">  
+  <video  class="midia-item" controls src="midias/Trailer do filme A Ilha do Medo (2010).mp4.mp4"></video>
+</div>
+
+
+<h2>Ficha Técnica</h2>
+<ul>
+  <li>Diretor: Martin Scorsese</li>
+  <li>Lançamento: 2010 </li>
+  <li>Duração: 2h 18min</li>
+  <li>Título original: Shutter Island</li>
+</ul>
+<table>
+  <tr>
+      <th>Personagem</th>
+      <th>Ator</th>
+  </tr>
+  <tr>
+      <td>Teddy Daniels</td>
+      <td>Leonardo DiCaprio</td>
+  </tr>
+  <tr>
+      <td>Rachel</td>
+      <td>Emily Mortimer</td>
+  </tr>
+  <tr>
+      <td>Chuck Aule</td>
+      <td>Mark Ruffalo</td>
+  </tr>
+  <tr>
+      <td>Dr. Crawley</td>
+      <td>Ben Kingsley</td>
+  </tr>
+  <tr>
+      <td>Dr. Naehring</td>
+      <td>Max von Sydow</td>
+  </tr>
+  <tr>
+      <td>Dolores</td>
+      <td>Michelle Williams</td>
+  </tr>
+</table>
+<br>
+<a href="https://www.imdb.com/title/tt1130884/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_ilha%2520do%2520medo">Link para página do IMDB</a>
+</section>
+
+<section class="filme3">
+
+
+<h3><strong>3 - Hereditário</strong></h3>
+<p> 
+  Após a morte da reclusa avó, a família Graham começa a desvendar algumas coisas. 
+  Mesmo após a partida da matriarca, ela permanece como se fosse uma sombra sobre 
+  a família, especialmente sobre a solitária neta adolescente, Charlie, 
+  por quem ela sempre manteve uma fascinação não usual. Com um crescente terror tomando conta da casa,
+  a família explora lugares mais escuros para escapar do infeliz destino que herdaram.
+</p>
+<div class="midia">
+  <img class="midia-item" src="midias/hereditario.jpg" alt="Hereditário">
+  <video  class="midia-item" controls src="midias/Hereditary Official Trailer HD A24.mp4"></video>
+</div>
+<br>
+<h2>Ficha Técnica</h2>
+<ul>
+  <li>Diretor: Ari Aster</li>
+  <li>Lançamento: 2018</li>
+  <li>Duração: 2h 17min</li>
+  <li>Título original: Hereditary</li>
+</ul>    
+<table>
+  <tr>
+      <th>Personagem</th>
+      <th>Ator</th>
+  </tr>
+  <tr>
+      <td>Annie</td>
+      <td>Toni Collette</td>
+  </tr>
+  <tr>
+      <td>Charlie</td>
+      <td>Milly Shapiro</td>
+  </tr>
+  <tr>
+      <td>Steve</td>
+      <td>Gabriel Byrne</td>
+  </tr>
+  <tr>
+      <td>Peter</td>
+      <td>Alex Wolff</td>
+  </tr>
+  <tr>
+      <td>Joan</td>
+      <td>Ann Dowd</td>
+  </tr>
+</table>
+<br>
+<a href="https://www.imdb.com/title/tt7784604/?ref_=nv_sr_srsg_0_tt_7_nm_1_q_hereditario">Link para página do IMDB</a>
+</section>
+  </div>
+  
+  <!-- Designers -->
+  <div class="w3-container" id="series" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <section class="series1">
+
+      <h3><strong>1 - The Office</strong></h3>
+      <p>
+          Esta adaptação americana se passa em uma empresa de papel em Scranton, Pensilvânia, e tem um estilo de documentário semelhante ao original britânico estrelado por Ricky Gervais. A série mostra a equipe da Dunder-Mifflin, que inclui personagens baseados no original britânico (e, provavelmente, em pessoas com quem você trabalha em seu escritório).
+      
+          Temos Jim, o simpático empregado que tem um pouco de todo homem. Ele sente uma atração pela recepcionista Pam, que foi promovida a representante de vendas (pois romances de escritório são sempre uma boa ideia).
+          
+          Além disso, temos Dwight, o colega de trabalho bem-sucedido que carece de habilidades sociais e bom senso. E há ainda Ryan, ex-estagiário que trabalha temporariamente na matriz em Nova York antes de retornar a Scranton.
+      </p>
+      
+      <div class="midia">
+          <img class="midia-item" src="midias/theOffice.jpg" alt="The Office">
+          <video  class="midia-item" controls src="midias/The Office (US) Trailer Oficial HBO Max.mp4"></video>
+      </div>
+      <br>
+      <h2>Ficha Técnica</h2>
+      <ul >
+          <li>Criação: Greg Daniels Ricky Gervais Stephen Merchant</li>
+          <li>Lançamento: 2005-2013</li>
+          <li>Temporadas: 9</li>
+          <li>Duração: 22min</li>
+      </ul>
+      <table>
+          <tr>
+              <th>Personagem</th>
+              <th>Ator</th>
+              <th>Aparições</th>
+          </tr>
+          <tr>
+              <td>Michael Scott</td>
+              <td>Steve Carell</td>
+              <td>142 episódios</td>
+          </tr>
+          <tr>
+              <td>Pam Beesly</td>
+              <td>Jenna Fischer</td>
+              <td>188 episódios</td>
+          </tr>
+          <tr>
+              <td>Jim Halpert</td>
+              <td>John Krasinski</td>
+              <td>188 episódios</td>
+          </tr>
+          <tr>
+              <td>Dwight Schrute</td>
+              <td>Rainn Wilson</td>
+              <td>188 episódios</td>
+          </tr>
+          <tr>
+              <td>Stanley Hudson</td>
+              <td>Leslie David Baker</td>
+              <td>188 episódios</td>
+          </tr>
+          <tr>
+              <td>Kevin Malone</td>
+              <td>Brian Baumgartner</td>
+              <td>188 episódios</td>
+          </tr>
+          <tr>
+              <td>Angela Martin</td>
+              <td>Angela Kinsey</td>
+              <td>188 episódios</td>
+          </tr>
+          <tr>
+              <td>Meredith Palmer</td>
+              <td>Kate Flannety</td>
+              <td>186 episódios</td>
+          </tr>
+          <tr>
+              <td>Phyllis Smith</td>
+              <td>Phyllis Vance</td>
+              <td>186 episódios</td>
+          </tr>
+          <tr>
+              <td>Creed Bratton</td>
+              <td>Creed Bratton</td>
+              <td>181 episódios</td>
+          </tr>
+          <tr>
+              <td>Oscar Martinez</td>
+              <td>Oscar Nunez</td>
+              <td>176 episódios</td>
+          </tr>
+          <tr>
+              <td>Ryan Howard</td>
+              <td>B.J. Novak</td>
+              <td>166 episódios</td>
+          </tr>
+          <tr>
+              <td>Kelly Kapoor</td>
+              <td>Mindy Kaling</td>
+              <td>158 episódios</td>
+          </tr>
+          <tr>
+              <td>Andy Bernard</td>
+              <td>Ed Helms</td>
+              <td>147 episódios</td>
+          </tr>
+          <tr>
+              <td>Toby Flenderson</td>
+              <td>Paul Lieberstein</td>
+              <td>137 episódios</td>
+          </tr>
+          <tr>
+              <td>Darryl Philbin</td>
+              <td>Craig Robinson</td>
+              <td>118 episódios</td>
+          </tr>
+          <tr>
+              <td>Erin Hannon</td>
+              <td>Ellie Kemper</td>
+              <td>102 episódios</td>
+          </tr>
+          <tr>
+              <td>Gabe Lewis</td>
+              <td>Zach Woods</td>
+              <td>51 episódios</td>
+          </tr>
+      </table>
+      <br>
+      <a href="https://www.imdb.com/title/tt0386676/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_the%2520office">Link para página do IMDB</a>
+  </section>
+      
+  <section class="series2">
+  
+      <h3><strong>2 - How i met your mother</strong></h3>
+      <p>
+          Ted se apaixonou. Tudo começou quando seu melhor amigo, Marshall, soltou a bomba de que planejava 
+          pedir em casamento a namorada de longa data, Lily, uma professora de jardim de infância. 
+          Ted percebeu que era melhor se mexer se esperava encontrar o verdadeiro amor. 
+          Para ajudá-lo na missão está Barney, um amigo com opiniões sem fim -- e às vezes absurdas --,  
+          uma queda por ternos e uma fórmula infalível para conhecer garotas. 
+          Quando Ted conhece Robin, tem certeza que é amor à primeira vista,  
+          mas o relacionamento esfria e se transforma em uma amizade.</p>
+          <div class="midia">
+              <img class="midia-item" src="midias/himym.jpg" alt="How i met your mother">
+              <video class="midia-item" controls src="midias/How I Met Your Mother Trailer.mp4"></video>
+          </div>
+          <br>
+          <h2>Ficha Técnica</h2>
+          <ul>
+              <li>Criação: Carter Bays Craig Thomas</li>
+              <li>Lançamento: 2005-2014</li>
+              <li>Temporadas: 9</li>
+              <li>Duração: 22min</li>
+          </ul>
+      <table>
+          <tr>
+              <th>Personagem</th>
+              <th>Ator</th>
+              <th>Aparições</th>
+          </tr>
+          <tr>
+              <td>Ted Mosby</td>
+              <td>Josh Radnor</td>
+              <td>208 episódios</td>
+          </tr>
+          <tr>
+              <td>Marshall Eriksen</td>
+              <td>Jason Segel</td>
+              <td>208 episódios</td>
+          </tr>
+          <tr>
+              <td>Robin Scherbatsky</td>
+              <td>Cobie Smulders</td>
+              <td>208 episódios</td>
+          </tr>
+          <tr>
+              <td>Barney Stinson</td>
+              <td>Neil Patrick Harris</td>
+              <td>208 episódios</td>
+          </tr>
+          <tr>
+              <td>Lily Aldrin</td>
+              <td>Alyson Hannigan</td>
+              <td>208 episódios</td>
+          </tr>
+          <tr>
+              <td>Tracy McConnel</td>
+              <td>Cristin Milioti</td>
+              <td>25 episódios</td>
+          </tr>
+      </table>
+      <br>
+      <a href="https://www.imdb.com/title/tt0460649/?ref_=nv_sr_srsg_0_tt_7_nm_1_q_how%2520">Link para página do IMDB</a>
+  </section>
+  
+  <section class="series3">
+  
+      
+      <h3><strong>3 - Doctor Who</strong></h3>
+      <p> A série acompanha Doctor, cientista de um planeta distante que viaja 
+          no tempo a bordo da TARDIS, uma nave que muda sua forma de acordo com seus arredores. 
+          Doctor também é capaz de alterar sua própria aparência.
+          <div class="midia">
+              <img class="midia-item" src="midias/doctorwho.jpg" alt="Doctor Who">
+              <video class="midia-item" controls src="midias/Doctor Who - Trailer (Dublado).mp4"></video>
+          </div>
+          <br>
+          <h2>Ficha Técnica</h2>
+          <ul>
+              <li>Criação: Sydney Newman</li>
+              <li>Lançamento: 2005-atual</li>
+              <li>Temporadas: 14</li>
+              <li>Duração: 45min</li>
+          </ul>
+          <table>
+              <tr>
+                  <th>Personagem</th>
+                  <th>Ator</th>
+                  <th>Aparições</th>
+          </tr>
+          <tr>
+              <td>10º Doutor</td>
+              <td>David Tennant</td>
+              <td>65 episódios</td>
+          </tr>
+          <tr>
+              <td>11º Doutor</td>
+              <td>Matt Smith</td>
+              <td>58 episódios</td>
+          </tr>
+          <tr>
+              <td>12º Doutor</td>
+              <td>Peter Capaldi</td>
+              <td>47 episódios</td>
+          </tr>
+          <tr>
+              <td>13º Doutor</td>
+              <td>Jodie Whittaker</td>
+              <td>32 episódios</td>
+          </tr>
+          <tr>
+              <td>Clara</td>
+              <td>Jenna Coleman</td>
+              <td>40 episódios</td>
+          </tr>
+          <tr>
+              <td>Amy Pond</td>
+              <td>Karen Gillan</td>
+              <td>36 episódios</td>
+          </tr>
+      </table>
+      <br>
+      <a href="https://www.imdb.com/title/tt0436992/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_doct">Link para página do IMDB</a>
+      
+      <hr>
+  </section>
+
+  </div>
+
+
+ 
+  <!-- Contact -->
+  <div class="w3-container" id="formulario" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Sugestão.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Escreva nessa sessão sugestões de novos filmes ou séries para serem adicionados ao site:</p>
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Tipo:</label>
+            <input type="radio" id="filme" name="tipo" value="filme">
+            <label for="filme">Filme</label>
+            <input type="radio" id="serie" name="tipo" value="serie">
+            <label for="serie">Série</label>
+      </div>
+      <div class="w3-section">
+        <label>Seu nome</label>
+        <input class="w3-input w3-border" type="text" name="nome" required placeholder="Digite seu nome aqui">
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="email" required placeholder="Digite seu email aqui">
+      </div>
+      <div class="w3-section">
+        <label>Título</label>
+        <input class="w3-input w3-border" type="text" name="titulo" required placeholder="Digite o título aqui">
+      </div>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Enviar</button>
+    </form>  
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>

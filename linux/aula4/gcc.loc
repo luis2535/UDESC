@@ -1,0 +1,16 @@
+prog.c:3:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+    3 | void main(void) {
+      |      ^~~~
+prog.c: In function ‘main’:
+prog.c:6:9: warning: implicit declaration of function ‘sleep’ [-Wimplicit-function-declaration]
+    6 |         sleep(1);
+      |         ^~~~~
+prog.c:8:16: warning: ‘return’ with a value, in function returning void [-Wreturn-type]
+    8 |         return 0;
+      |                ^
+prog.c:3:6: note: declared here
+    3 | void main(void) {
+      |      ^~~~
+prog.c:4:13: warning: variable ‘n’ set but not used [-Wunused-but-set-variable]
+    4 |         int n;
+      |             ^

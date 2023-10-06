@@ -1,0 +1,20 @@
+Comandos da aula:
+
+cat
+
+tac
+
+paste
+
+split
+
+wc
+
+diff
+
+md5sum
+
+grep
+
+vi
+

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Exemplo 1</title>
+    </head>
+
+    <script>
+        function AltMinusc() {
+            document.Casechanger.text1.value = document.Casechanger.text1.value.toLowerCase()
+            document.Casechanger.text2.value = document.Casechanger.text2.value.toLowerCase()
+            document.Casechanger.text3.value = document.Casechanger.text3.value.toLowerCase()
+            document.Casechanger.opt1.checked = false
+        }
+        function AltMaiusc() {
+            document.Casechanger.text1.value = document.Casechanger.text1.value.toUpperCase()
+            document.Casechanger.text2.value = document.Casechanger.text2.value.toUpperCase()
+            document.Casechanger.text3.value = document.Casechanger.text3.value.toUpperCase()
+            document.Casechanger.opt2.checked = false
+        }
+    </script>
+
+    <body>
+        <form name="Casechanger">
+            <label for="text1">Texto 1:</label>
+            <input type="text" id="text1" name="text1"> <br><br>
+            <label for="text2">Texto 2:</label>
+            <input type="text" id="text2" name="text2"> <br><br>
+            <label for="text3">Texto 3:</label>
+            <input type="3" id="text3" name="text3"><br><br>
+
+            <label for="minuscula">Converter para minuscula</label>
+            <input type="checkbox" name="opt1" id="minuscula" value="1" checked onclick="if(this.checked){AltMinusc()}">
+
+            <label for="maiuscula">Converter para maiuscula</label>
+            <input type="checkbox" name="opt2" id="maiuscula" value="2" onclick="if (this.checked){AltMaiusc()}">
+        </form>
+
+    </body>
+</html>

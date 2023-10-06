@@ -1,0 +1,24 @@
+Comandos linux aula 3
+
+
+
+find . -name arq\?
+para achar arquivos com esse nome
+
+find . -name arq\? -mtime 2
+find . -name arq\? -mtime -2
+find . -name arq\? -mtime +2
+achar arquivos que foram alterados dentro de um limite de tempo
+
+
+
+ls -l *../arq?
+
+para ver os time stamp de ultima alteração dos arquivos
+
+
+cpio -i -m <../arqs.cpio
+
+cpio é meio complicado, n entendi
+
+

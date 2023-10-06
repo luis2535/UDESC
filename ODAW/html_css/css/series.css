@@ -1,0 +1,64 @@
+h1 {
+    font-family: Arial;
+    font-size: xx-large;
+    font-weight: bold;
+    color: blue;
+    text-align: center;
+}
+h2 {
+    font-family: Arial;
+    font-weight: bold;
+    text-align: center;
+}
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: gray;
+    color: black;
+    font-weight: bold;
+}
+td{
+    background-color: white;
+    color: black;
+}
+
+
+.series1 {
+    font-family: Arial;
+    color: indigo;
+}
+
+.series2 {
+    font-family: Arial;
+    color: darkgoldenrod;
+}
+
+.series3 {
+    font-family: Arial;
+    color:magenta;
+}
+
+#midia {
+    display: flex;
+    justify-content: center;
+}

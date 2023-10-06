@@ -1,0 +1,94 @@
+.midia {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 0 auto;
+}
+
+.midia-item {
+    width: 45%; 
+    height: 400px; 
+    object-fit: cover;
+    margin: 0 10px; 
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: gray;
+    color: black;
+    font-weight: bold;
+}
+
+td {
+    background-color: white;
+    color: black;
+}
+
+/* Estilizando a contagem regressiva */
+#contagem {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  .numero {
+    font-size: 36px;
+    display: inline-block; 
+    margin: 0 10px; 
+    padding: 5px 10px; 
+    background-color: #f0f0f0; 
+    border-radius: 10px; 
+    color: #333; 
+  }
+  
+  .rotulo {
+    font-size: 18px; 
+    margin: 0 10px; 
+    color: #555; 
+  }
+
+.modo-claro {
+    background-color: white;
+    color: black;
+}
+
+.modo-escuro {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+
+button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+
+button:hover {
+    background-color: #ff3333;
+}
+
+  

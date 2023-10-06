@@ -1,0 +1,41 @@
+.midia {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 0 auto;
+}
+
+.midia-item {
+    width: 45%; 
+    height: 400px; 
+    object-fit: cover;
+    margin: 0 10px; 
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: gray;
+    color: black;
+    font-weight: bold;
+}
+
+td {
+    background-color: white;
+    color: black;
+}

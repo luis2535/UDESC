@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Gerador de Cores Aleatórias</title>
+</head>
+<body>
+    <h1>Gerador de Cores Aleatórias</h1>
+    <div id="caixa">
+        <p>Clique no botão abaixo para gerar uma cor aleatória:</p>
+        <button id="mudarCor">Gerar Cor</button>
+    </div>
+
+    <script>
+        function corAleatoria() {
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+
+            var randomColor = `rgb(${red}, ${green}, ${blue})`;
+
+            return randomColor;
+        }
+
+        function mudaFundo() {
+            var colorBox = document.getElementById('caixa');
+            colorBox.style.backgroundColor = corAleatoria();
+        }
+        var button = document.getElementById('mudarCor');
+        button.addEventListener('click', mudaFundo);
+    </script>
+</body>
+</html>

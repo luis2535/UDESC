@@ -1,0 +1,86 @@
+1.
+r = 4
+w = 2
+x = 1
+a) 7-5-5
+b) 6-4-0
+c) 3-2-1
+d) 7-5-5
+e) 7-7-7
+f) 7-5-4
+
+2)
+chmod 755 arq1
+chmod 604 arq2
+chmod 321 arq3
+chmod 4755 arq4
+
+uis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8$ ls -l
+total 4
+-rwxr-xr-x 1 luis2535 luis2535  0 ago 29 14:17 arq1
+-rw----r-- 1 luis2535 luis2535  0 ago 29 14:17 arq2
+--wx-w---x 1 luis2535 luis2535  0 ago 29 14:17 arq3
+-rwsr-xr-x 1 luis2535 luis2535  0 ago 29 14:17 arq4
+
+
+
+3)a)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ chmod 750 abacaxi
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ chmod 764 banana
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ chmod 700 cereja 
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ ls -l
+total 0
+
+b)
+-rwxr-x--- 1 luis2535 luis2535 0 ago 29 14:24 abacaxi
+-rwxrw-r-- 1 luis2535 luis2535 0 ago 29 14:24 banana
+-rwx------ 1 luis2535 luis2535 0 ago 29 14:24 cereja
+
+c)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ chmod g+r cereja
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ ls -l
+total 0
+-rwxr-x--- 1 luis2535 luis2535 0 ago 29 14:24 abacaxi
+-rwxrw-r-- 1 luis2535 luis2535 0 ago 29 14:24 banana
+-rwxr----- 1 luis2535 luis2535 0 ago 29 14:24 cereja
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ chmod o-r abacaxi
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula8/ex3$ ls -l
+total 0
+-rwxr-x--- 1 luis2535 luis2535 0 ago 29 14:24 abacaxi
+-rwxrw-r-- 1 luis2535 luis2535 0 ago 29 14:24 banana
+-rwxr----- 1 luis2535 luis2535 0 ago 29 14:24 cereja
+
+
+d)
+chmod 770 /home/proj1
+chmod 755 /home/proj1/pub
+chmod 711 /home/proj1/temp
+umask 007
+
+
+
+4)
+0761
+-rwxrw---x
+a)certo
+b)errado
+c)errado
+d)certo
+e)errado
+f)certo
+g)errado
+h)errado
+i)certo
+j)errado
+k)certo
+l)errado
+m)errado
+n)errado
+o)errado
+p)certo
+q)errado
+r)errado
+s)errado
+t)errado
+u)certo
+v)errado

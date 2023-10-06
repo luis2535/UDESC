@@ -1,0 +1,115 @@
+1)a)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ alias ls
+alias ls='ls --color=auto'
+
+
+b)luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ alias lsi='ls -li'
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ lsi
+total 4
+10489187 -rw-rw-r-- 1 luis2535 luis2535 103 set 14 13:54 exercicios
+
+
+alias ls='ls --color=auto'
+LS_COLORS='di=1;31:ln=31:ex=31:*.rpm=31:*.deb=31' # Define a cor vermelha para diretórios, links e executáveis
+export LS_COLORS
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ ls
+exercicios
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ alias ls
+alias ls='ls --color=auto'
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ ls
+aaa  exercicios
+
+
+mudou a cor do diretorio para vermelho
+
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ unalias ls
+
+
+12)
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ alias xpto="echo alias"
+function xpto {
+  echo funcao
+}
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ \xpto
+funcao
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ xpto
+alias
+
+se eu chamo xpto ele aciona o alias, se eu chamo \xpto ele aciona a funcao
+
+
+13)
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ peixe() { echo "bagre"; }
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ peixe
+bagre
+
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ declare -f peixe
+peixe () 
+{ 
+    echo "bagre"
+}
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ bash -c peixe
+bash: linha 1: peixe: comando não encontrado
+
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ bash -c peixe
+bash: linha 1: peixe: comando não encontrado
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ export -f peixe
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ sudo bash -c peixe
+bash: linha 1: peixe: comando não encontrado
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ bash -c peixe
+bagre
+
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ peixe="manjuba"
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ peixe
+bagre
+
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ echo $peixe
+manjuba
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ set | grep peixe
+_=peixe
+peixe=manjuba
+peixe ()
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ env | grep peixe
+BASH_FUNC_peixe%%=() {  echo "bagre"
+
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ unset -f peixe
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ peixe
+peixe: comando não encontrado
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ bash -c peixe
+bash: linha 1: peixe: comando não encontrado
+
+14)
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ function param() { num=$#; echo "$num";}
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ param a b
+2
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ param 
+0
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula11$ param a b e d e r t
+7
+
+
+15)
+vai pelo numero de palavras os parametros
+
+16)
+
+
+
+
+
+
+

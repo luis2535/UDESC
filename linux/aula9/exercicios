@@ -1,0 +1,55 @@
+1)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ ls
+a1  a2  a3  a4  a5  d1
+
+2)luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ cat a?
+baiacu
+baiacu
+baiacu
+baiacu
+baiacu
+
+3)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ find . -type f -o -type l | wc -l
+13
+
+4) Não sei
+
+5)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ ls d1
+a1  a2  a3  a4  a5  d2
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ ls d1/d2
+a1  a5
+
+6)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ mv /home/luis2535/UDESC/linux/aula9/d2 /home/luis2535/UDESC/linux/aula9/d1
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ ls
+a1  a2  a3  a4  a5  d1  exercicios
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9$ cd d1
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d1$ ls
+a1  a2  a3  a4  a5  d2
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d1$ cd d2
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d1/d2$ ls
+a1  a5
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d1/d2$ cata*
+cata*: comando não encontrado
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d1/d2$ cat a*
+mangona
+baiacu
+
+
+7)luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d3$ find . -type f -o -type l | wc -l
+0
+
+8)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d3$ touch a1
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d3$ find . -type f -o -type l | wc -l
+1
+
+9)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d3$ mkdir d4
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula9/d3$ find . -type f -o -type l | wc -l
+1
+
+10)
+

@@ -1,0 +1,87 @@
+1. 
+sudo bash -l
+
+cd etc/profile
+
+root@luis2535-IdeaPad-3-15ALC6:/etc# ls -a ~/.bash_profile
+ls -a ~/.bash_login
+ls -a ~/.profile
+ls: não foi possível acessar '/root/.bash_profile': Arquivo ou diretório inexistente
+ls: não foi possível acessar '/root/.bash_login': Arquivo ou diretório inexistente
+/root/.profile
+root@luis2535-IdeaPad-3-15ALC6:/etc# touch ~/.bash_profile
+root@luis2535-IdeaPad-3-15ALC6:/etc# nano ~/.bash_profile 
+root@luis2535-IdeaPad-3-15ALC6:/etc# 
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ sudo bash -l
+executando .bash_profile: comando não encontrado
+root@luis2535-IdeaPad-3-15ALC6:/home/luis2535# 
+
+
+2.
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var1=bagre
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var1
+var1: comando não encontrado
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ ./var1
+bash: ./var1: Arquivo ou diretório inexistente
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var2=frito
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ export var1
+bagre
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ bash -c "echo $var1 $var2"
+bagre frito
+
+
+a)Não sei o pq isso acontece
+
+c)
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ bash
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var1=baiacu
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ kill -STOP $$
+
+[1]+  Parado                  bash
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $var1
+bagre
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ 
+
+d)
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var3="ensopado de $var1"
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $var3
+ensopado de bagre
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var1=baiacu
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $var1
+baiacu
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $var3
+ensopado de bagre
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ export var1
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $var3
+ensopado de bagre
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ 
+
+4)
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ var4=teste
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo var4
+var4
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $var4
+teste
+luis2535@luis2535-IdeaPad-3-15ALC6:~$ echo $VAR4
+
+
+5)
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula10$ arq=azul
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula10$ cp $arq d1
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula10$ ls
+ azul   baleia  'baleia azul'   d1   Exercicios
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula10$ cat d1
+a
+
+
+ele copiou o arquivo q estava em azul apenas
+
+luis2535@luis2535-IdeaPad-3-15ALC6:~/UDESC/linux/aula10$ cp $arq d1
+cp: o alvo 'd1' não é um diretório
+
+
+6)
+
+
+

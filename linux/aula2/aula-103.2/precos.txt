@@ -1,0 +1,8 @@
+lima	3.00
+pera	6.00		
+banana	5.00
+morango	12.00
+kiwi    18.00
+caqui   14.00
+manga	8.00    
+abacate 9.00

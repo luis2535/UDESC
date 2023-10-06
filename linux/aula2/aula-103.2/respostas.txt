@@ -1,0 +1,10 @@
+1)
+sort numeros.txt -n
+sort numeros.txt -n -r
+sort -n numeros.txt | tail -n 1
+sort -n numeros.txt | head -n 1
+
+
+2)
+cat caes.txt -n
+

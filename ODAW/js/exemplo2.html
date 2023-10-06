@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Exemplo 2</title>
+    </head>
+
+    <script>
+        function TesteSub(){
+            var camposVazios = []
+
+            var campos = document.forms["Preenchido"].getElementsByTagName("input")
+
+            for(var i = 0; i < campos.length; i++){
+                if(campos[i].type == "text" && campos[i].value == ""){
+                    camposVazios.push(campos[i].id)
+                }
+            }
+            if (camposVazios.length > 0){
+                alert("Campos " + camposVazios + " não preenchidos")
+                return false
+            }
+            else {
+                alert("Tudo ok")
+                return true
+            }
+        }
+    </script>
+
+
+    <form name="Preenchido" method="POST" onsubmit="return TesteSub()">
+        <label for="text1">Texto 1:</label>
+        <input type="text" name="text1" id="texto 1"> <br><br>
+        <label for="text2">Texto 2:</label>
+        <input type="text" name="text2" id="texto 2"> <br><br>
+        <label for="text3">Texto 3:</label>
+        <input type="text" name="text3" id="texto 3"> <br><br>
+        <label for="text4">Texto 4:</label>
+        <input type="text" name="text4" id="texto 4"> <br><br>
+        <input type="submit" name="sub" id="sub" value="Teste">
+    </form>
+
+</html>

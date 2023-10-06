@@ -1,0 +1,44 @@
+1. mkrdir
+2. mkdir
+3. touch arquivo
+4.ls
+5. mkdir
+6. cp /home/luis2535/UDESC/linux/aula3/doc/couve.doc /home/luis2535/UDESC/linux/aula3/img
+7. mv couve.doc batata.doc
+8. mkdir
+9. cp /home/luis2535/UDESC/linux/aula3/doc/abacate.doc /home/luis2535/UDESC/linux/aula3/doc/amora.txt /home/luis2535/UDESC/linux/aula3/img/arquivos2
+10. cd ~
+rm -r /home/luis2535/UDESC/linux/aula3/img
+11. cd
+12. cd -
+13. mkdir -p dir1/dir2
+14. touch arq1 arq2
+15. rm -r dir1
+16. 
+17. tar -tf arqs-103.3.tgz
+18. tar -xzvf arqs-103.3.tgz -C /home/luis2535/UDESC/linux/aula3
+19. cd e ls
+20. ls a*
+21. ls *t
+22. ls a*a.txt
+23. ls aa*
+24. ls a*f*
+25. ls ?[ad]*
+26. ls ??[f-m]*
+27. ls ?alfa*
+28. cp -r relatorios relatorios.bak
+29. rm -r alfa.txt
+30. rm gama.alfa.txt adendos/lixo1.txt
+31. rm -r relatorios.bak
+32. find . -name '*.jpg'
+33. find . -maxdepth 2 -name "*.png"
+34. find . -maxdepth 1 -iname "foto*" -o -iname "Foto*"
+35. find . -type d -name '[A-Z]*'
+36. find aula-103.3 -type f -name ".*"
+37. find /usr/bin -type f -size +20M
+38. find /usr/bin -type f -size +20M -exec sha256sum {} \;
+39. find /usr -type f -size 0 | wc -l
+40. dd if=foto1.jpg of=foto1.jpg.bak
+
+
+

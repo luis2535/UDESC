@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series/Filmes</title>
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body style="background-color: lightblue;">
+    <header>
+        <svg height="150" width="550">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:cyan;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:magenta;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="150" cy="75" rx="115" ry="70" fill="url(#grad1)" />
+            <text fill="black" font-size="30" font-family="Verdana" text-anchor="middle" dominant-baseline="middle" x="150" y="75">Filmes/Séries</text>
+            Sorry, your browser does not support inline SVG.
+          </svg>
+          
+          
+          
+
+        <h1><b>Resenha Séries e Filmes</b></h1>
+        
+        <a href="index.html">Inicio</a> | <a href="filmes.html">Filmes</a> | <a href="series.html">Series</a> | <a href="forms.html">Formulário</a>
+    </header>
+    <hr>
+    <section>
+
+        <form>
+            <h2>Sugestão de Filmes/Séries</h2>
+            <h3>Escreva nessa sessão sugestões de novos filmes ou séries para serem adicionados ao site:</h3>
+            
+            <label>Tipo:</label><br>
+            <input type="radio" id="filme" name="tipo" value="filme">
+            <label for="filme">Filme</label>
+            <input type="radio" id="serie" name="tipo" value="serie">
+            <label for="serie">Série</label><br><br>
+            
+            <label for="titulo">Título:</label><br>
+            <input type="text" id="titulo" name="titulo" required style="width: 300px;" placeholder="Digite o título aqui"><br><br>
+            
+            <label for="nome">Seu Nome:</label><br>
+            <input type="text" id="nome" name="nome" required style="width: 300px;" placeholder="Digite seu nome aqui"><br><br>
+            
+            <label for="email">Seu Email:</label><br>
+            <input type="email" id="email" name="email" required style="width: 300px;" placeholder="Digite seu email aqui"><br><br>
+            
+            <input type="submit" value="Enviar Sugestão">
+        </form>
+        
+    </section>
+</body>
+</html>
