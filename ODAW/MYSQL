@@ -1,0 +1,23 @@
+--1
+CREATE DATABASE WEB;
+
+--2
+CREATE TABLE Usuário (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(255),
+	email VARCHAR(255),
+	senha VARCHAR(255)
+);
+
+--3
+INSERT INTO Usuário (nome, email, senha) VALUES ('Luís', 'luiseduardobertelli1@gmail.com', '123456789');
+--4
+UPDATE Usuário SET senha = '987654321' WHERE id = 1;
+--5
+SELECT * FROM Usuário;
+--6
+DELETE FROM Usuário WHERE id = 1;
+--7
+DROP TABLE Usuário;
+--8
+DROP DATABASE WEB;
