@@ -1,0 +1,60 @@
+Model 0 Learning Rate = 0.01
+Test Accuracy 0.9658536314964294
+Test Loss 0.10402626544237137
+
+Model 1 Learning Rate = 0.01
+Test Accuracy 0.9560975432395935
+Test Loss 0.21220041811466217
+
+Model 2 Learning Rate = 0.01
+Test Accuracy 0.9707317352294922
+Test Loss 0.09197688847780228
+
+Model 0 Learning Rate = 0.01
+Test Accuracy 0.9560975432395935
+Test Loss 0.09591750055551529
+
+Model 1 Learning Rate = 0.01
+Test Accuracy 0.9560975432395935
+Test Loss 0.16667795181274414
+
+Model 2 Learning Rate = 0.01
+Test Accuracy 0.9658536314964294
+Test Loss 0.09556625783443451
+
+Model 0 Learning Rate = 0.01
+Test Accuracy 0.9512194991111755
+Test Loss 0.1595352292060852
+
+Model 1 Learning Rate = 0.01
+Test Accuracy 0.6390243768692017
+Test Loss 0.6544131636619568
+
+Model 2 Learning Rate = 0.01
+Test Accuracy 0.9756097793579102
+Test Loss 0.0847574919462204
+
+Model 0 Learning Rate = 0.01
+Test Accuracy 0.9463414549827576
+Test Loss 0.1338806450366974
+
+Model 1 Learning Rate = 0.01
+Test Accuracy 0.6390243768692017
+Test Loss 0.6545730233192444
+
+Model 2 Learning Rate = 0.01
+Test Accuracy 0.9707317352294922
+Test Loss 0.0898127481341362
+
+Model 0 Learning Rate = 0.01
+Test Accuracy 0.9489051103591919
+Test Loss 0.15115880966186523
+
+Model 1 Learning Rate = 0.01
+Test Accuracy 0.9489051103591919
+Test Loss 0.12871786952018738
+
+Model 2 Learning Rate = 0.01
+Test Accuracy 0.9635036587715149
+Test Loss 0.11877931654453278
+
