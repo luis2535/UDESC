@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mosquitto MQTT Web</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    .container {
+      margin: auto;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    #statusIndicator {
+      width: 100px; /* Tamanho igual para tornar a elipse mais esférica */
+      height: 100px; /* Tamanho igual para tornar a elipse mais esférica */
+      border-radius: 50%;
+      background-color: gray;
+      margin-top: 10px;
+    }
+  
+    #statusText {
+      margin-top: 10px;
+      font-size: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sistema de detecção de vaga</h1>
+  <div class="container">
+    <h2>Status da Vaga:</h2>
+    <div id="statusIndicator"></div>
+    <p id="statusText">Aguardando dados...</p>
+  </div>
+
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+  <script>
+    const socket = io();
+    const statusIndicator = document.getElementById('statusIndicator');
+    const statusText = document.getElementById('statusText');
+
+    socket.on('mqttMessage', (data) => {
+      console.log('Objeto de dados recebido:', data);
+
+      const { distance, status } = data;
+
+      statusText.innerHTML = `Vaga: ${status} Distância: ${distance} cm`;
+
+
+      if (status === 'Ocupado') {
+        statusIndicator.style.backgroundColor = 'red';
+        
+      } else if (status === 'Livre') {
+        statusIndicator.style.backgroundColor = 'green';
+        
+      } else {
+        statusIndicator.style.backgroundColor = 'gray';
+        
+      }
+    });
+  </script>
+</body>
+</html>

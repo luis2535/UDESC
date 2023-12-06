@@ -1,0 +1,31 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Adiciona esta linha para centralizar o conteúdo */
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  #statusIndicator {
+    width: 150px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    /* margin: auto; Remova esta linha */
+  }
+  
+  #statusText {
+    display: inline-block;
+  }
+  
+  .container {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

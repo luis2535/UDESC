@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../../UDESC/IOT/ESP32"
+		},
+		{
+			"name": "Teste ESP32",
+			"path": "../Teste ESP32"
+		},
+		{
+			"name": "Teste ESP",
+			"path": "../Teste ESP"
+		},
+		{
+			"name": "Teste Ultrassonico",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
