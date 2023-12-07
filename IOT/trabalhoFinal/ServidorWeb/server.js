@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-const mqttClient = mqtt.connect('mqtt://192.168.1.20');
+const mqttClient = mqtt.connect('mqtt://ip-da-sua-rede');
 
 mqttClient.on('connect', () => {
   mqttClient.subscribe('topico_79384', (err) => {

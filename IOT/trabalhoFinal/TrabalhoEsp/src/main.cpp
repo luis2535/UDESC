@@ -10,10 +10,10 @@
 
 NewPing sonar(TRIGGER_PIN, ECHO_PIN);
 
-const char* ssid = "Elizabeth 2G";
-const char* password = "B3rt3@@i";
+const char* ssid = "nome-da-rede";
+const char* password = "senha-da-rede";
 
-const char* mqtt_server = "192.168.1.20";
+const char* mqtt_server = "ip-da-rede";
 const int mqtt_port = 1883;
 const char* mqtt_user = "tht";
 const char* mqtt_password = "senha123";

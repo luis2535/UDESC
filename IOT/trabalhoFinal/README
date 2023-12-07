@@ -1,0 +1,51 @@
+# Como executar o código:
+
+
+# Instalar Broker Mosquitto no Ubuntu
+
+`sudo apt update`
+`sudo apt install mosquitto`
+`sudo apt install mosquitto-clients`
+
+# Verificar se o Mosquitto está em execução
+
+`sudo systemctl status mosquitto`
+
+# Para testar o a instalação:
+# Terminal 1
+
+`mosquitto_sub -h localhost -t "test_topic"`
+
+# Terminal 2
+
+`mosquitto_pub -h localhost -t "test_topic" -m "Hello, Mosquitto!"`
+
+# Se tudo der certo você deve conseguir ver a mensagem no terminal principal
+
+# Abrir o projeto TrabalhoEsp com o Platformio
+
+# Na pasta TrabalhoEsp, entre na pasta src, no código main.cpp
+
+`const char* ssid = "Elizabeth 2G";`
+`const char* password = "B3rt3@@i";`
+
+`const char* mqtt_server = "192.168.1.20";`
+
+
+# Altere a variável ssid pelo nome da sua rede, password para a senha de acesso da sua rede
+ 
+# Digite ifconfig no terminal e use o seu ipv4 no lugar do mqtt_server
+
+# Faça o Build do código main.cpp(Ctrl + Alt + B) e o Upload(Ctrl + Alt + U) e execute o código (Ctrl + Alt + S)
+
+# Na pasta ServidorWeb
+
+`const mqttClient = mqtt.connect('mqtt://192.168.205.59');`
+
+# Altere essa variável para o seu ipv4
+
+# Execute o código server.js
+
+`node server.js`
+
+# Abra no seu navegador a url http://localhost:3000/
