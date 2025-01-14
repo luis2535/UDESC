@@ -1,0 +1,53 @@
+CREATE TABLE Usuario (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome TEXT NOT NULL,
+    Senha TEXT NOT NULL,
+    Email TEXT NOT NULL,
+    Tipo TEXT
+);
+
+CREATE TABLE Aluno (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    IdUsuario INTEGER,
+    IdTurma INTEGER,
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(Id),
+    FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+);
+
+CREATE TABLE Professor (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    IdUsuario INTEGER,
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(Id)
+);
+
+CREATE TABLE Turma (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome TEXT NOT NULL,
+    IdProfessor INTEGER,
+    FOREIGN KEY (IdProfessor) REFERENCES Professor(Id)
+);
+
+CREATE TABLE Quiz (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome TEXT NOT NULL,
+    IdProfessor INTEGER,
+    IdTurma INTEGER,
+    FOREIGN KEY (IdProfessor) REFERENCES Professor(Id),
+    FOREIGN KEY (IdTurma) REFERENCES Turma(Id)
+);
+
+CREATE TABLE Pergunta (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Texto TEXT NOT NULL,
+    IdQuiz INTEGER,
+    FOREIGN KEY (IdQuiz) REFERENCES Quiz(Id)
+);
+
+CREATE TABLE Opcao (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Texto TEXT NOT NULL,
+    Correta BOOLEAN NOT NULL,
+    IdPergunta INTEGER,
+    FOREIGN KEY (IdPergunta) REFERENCES Pergunta(Id)
+);
+

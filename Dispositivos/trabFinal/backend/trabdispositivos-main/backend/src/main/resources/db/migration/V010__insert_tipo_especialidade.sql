@@ -1,0 +1,10 @@
+insert into especialidade VALUES (1, "Desenvolvedor");
+insert into especialidade VALUES (2, "Design");
+insert into especialidade VALUES (3, "Java");
+insert into especialidade VALUES (4, "JavaScript");
+insert into especialidade VALUES (5, "SpringBoot");
+insert into especialidade VALUES (6, "React");
+insert into especialidade VALUES (7, "VueJs");
+insert into especialidade VALUES (8, "Angular");
+insert into especialidade VALUES (9, "Html");
+insert into especialidade VALUES (10, "Css");

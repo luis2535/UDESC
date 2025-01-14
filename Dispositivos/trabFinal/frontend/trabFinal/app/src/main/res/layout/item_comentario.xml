@@ -1,0 +1,46 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/comment_background">
+
+    <TextView
+        android:id="@+id/nome_usuario_comentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome do Usuário"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/texto_comentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texto do comentário"
+        android:textSize="18sp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/orcamento_comentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="R$ 0,00 - Por hora"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/contratar_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contratar"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#125D55"
+        android:textColor="@android:color/white"
+        android:padding="12dp" />
+</LinearLayout>

@@ -1,0 +1,37 @@
+Equipe: Lucas Novak e Luís Eduardo Bertelli
+
+1 - Para enviar mensagens digite:
+
+		/send message <usuario> <mensagem>
+
+	Exemplo:
+
+		/send message <Bob> <Bom dia>
+
+2 - Para enviar arquivos digite:
+
+		/send file <usuario> <caminho>
+
+
+	Exemplo:
+
+		/send file <Bob> </home/teste.txt>
+
+	O arquivo ficará salvo na pasta trabsocketthreads
+
+3 - Para listar os usuarios digite:
+
+		/users
+
+4 - Para encerrar a conexão do cliente com o sistema digite:
+
+		/sair
+
+
+5 - O arquivo salva em um log.txt na pasta trabsocketthreads o log de conexão dos usuarios no seguinte formato:
+
+	Cliente conectado - IP: <IP usuario>:<Port>, Nome: <Nome Usuario>, Horário: <yyyy-mm-dd hh:mm:ss>
+
+	Exemplo:
+
+	Cliente conectado - IP: 127.0.0.1:50530, Nome: A, Horário: 2024-09-25 21:34:00

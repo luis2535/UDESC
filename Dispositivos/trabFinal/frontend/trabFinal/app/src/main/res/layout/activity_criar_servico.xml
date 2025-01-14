@@ -1,0 +1,197 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".CriarServico">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/back_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:layout_gravity="start"
+                android:padding="8dp" />
+
+            <!-- Nome do Serviço -->
+            <EditText
+                android:id="@+id/nome_servico_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome do Serviço"
+                android:inputType="text"
+                android:padding="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+
+                android:background="@drawable/rounded_corner" />
+
+            <!-- Descrição do Serviço -->
+            <EditText
+                android:id="@+id/descricao_valor_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição do Serviço"
+                android:inputType="textMultiLine"
+                android:padding="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_corner" />
+
+            <!-- Valor do Serviço -->
+            <EditText
+                android:id="@+id/valor_servico_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Valor do Serviço (R$)"
+                android:inputType="numberDecimal"
+                android:padding="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_corner" />
+
+            <TextView
+                android:id="@+id/especialidades_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecione suas especialidades:"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp" />
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/especialidades_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:paddingLeft="100dp">
+
+                <CheckBox
+                    android:id="@+id/desenvolvedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desenvolvedor"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/design"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Design"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/java"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Java"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/javascript"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Javascript"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/springboot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spring Boot"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/react"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="React"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/vuejs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VueJs"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/angular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Angular"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/html"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HTML"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/css"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CSS"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/criar_servico_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Criar Serviço"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:backgroundTint="#125D55"
+                android:padding="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

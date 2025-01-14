@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">trabFinal</string>
+    <string-array name="tipo_usuario_array">
+        <item>Selecione o tipo de usuário</item>
+        <item>Cliente</item>
+        <item>Freelancer</item>
+    </string-array>
+</resources>

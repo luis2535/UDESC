@@ -1,0 +1,103 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:layout_gravity="start"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/nome_servico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome do Serviço"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/valor_servico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="R$ 0,00"
+            android:textSize="20sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/lista_especialidades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Especialidades"
+            android:textSize="20sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/descricao_servico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descrição do Serviço"
+            android:textSize="20sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/usuario_servico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Criado por: Nome do Usuário"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comentarios_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/comentario_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escreva seu comentário"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/orcamento_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Orçamento (R$)"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/comentario_orcamento_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Orçamento por hora ou projeto?"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/enviar_comentario_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar Comentário"
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="#125D55"
+            android:padding="16dp" />
+    </LinearLayout>
+</ScrollView>
